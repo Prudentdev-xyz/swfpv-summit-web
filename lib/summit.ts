@@ -125,3 +125,20 @@ export const STRIP: StripPhoto[] = [
   { src: '/img-e.jpg', label: 'Summit event', height: 230, rotate: 4, bg: '#2B266A' }
 ];
 export const TICKER = ['Floating Solar Architecture', 'Southwest Nigeria', 'Clean Energy Future', '150MWp', 'RSVP 09127975829'];
+
+export const CONTACT = {
+  phone: { display: '09127975829', href: 'tel:+2349127975829' },
+  email: 'info@dolfhydrometric.com',
+  website: 'https://dolfhydrometric.com',
+};
+
+export type StakeholderLogo = { src: string; alt: string; width: number; height: number; bg: string; maxH: string };
+
+export const STAKEHOLDER_LOGOS: StakeholderLogo[] = [
+  { src: '/logo-borbda.jpg', alt: 'Benin-Owena River Basin Development Authority', width: 1024, height: 1024, bg: 'bg-white border-2 border-line', maxH: 'max-h-[82px]' },
+  { src: '/logo-nrg.png', alt: 'NRG Island', width: 2362, height: 2368, bg: 'bg-[#18213F]', maxH: 'max-h-[90px]' },
+  { src: '/logo-seaflex.webp', alt: 'Seaflex', width: 772, height: 262, bg: 'bg-white border-2 border-line', maxH: 'max-h-[70px]' },
+];
+
+/** Stakeholders with no logo file yet; they show as name tiles. */
+export const STAKEHOLDER_NAMES = ['Heliorec', 'GPS'];

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { PrimaryButton } from "@/components/buttons/primary-button";
 
 const LINKS = [
   { href: "#about", label: "About" },
@@ -10,7 +11,7 @@ const LINKS = [
   { href: "#venue", label: "Venue" },
 ];
 
-export function SiteNav() {
+export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -61,16 +62,9 @@ export function SiteNav() {
             </a>
           ))}
         </div>
-        <a
-          href="#rsvp"
-          onClick={closeMenu}
-          className="inline-flex h-11 items-center gap-2.5 rounded-full bg-navy py-0 pr-1.5 pl-5 text-[15px] font-bold whitespace-nowrap text-white transition-colors hover:bg-ocean hover:text-white"
-        >
+        <PrimaryButton href="#rsvp" size="sm" onClick={closeMenu}>
           RSVP
-          <span aria-hidden className="flex size-8 items-center justify-center rounded-full bg-sky">
-            ↗
-          </span>
-        </a>
+        </PrimaryButton>
         <button
           type="button"
           onClick={() => setMenuOpen((open) => !open)}
