@@ -142,3 +142,6 @@ export const STAKEHOLDER_LOGOS: StakeholderLogo[] = [
 
 /** Stakeholders with no logo file yet; they show as name tiles. */
 export const STAKEHOLDER_NAMES = ['Heliorec', 'GPS'];
+
+/** Day 1 opening session, 1:00 PM West Africa Time. */
+export const SUMMIT_START = new Date('2026-12-03T13:00:00+01:00');

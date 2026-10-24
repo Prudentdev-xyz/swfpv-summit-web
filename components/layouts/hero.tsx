@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import { PrimaryButton } from "@/components/buttons/primary-button";
 import { SecondaryButton } from "@/components/buttons/secondary-button";
+import { Countdown } from "@/components/countdown";
 import { STRIP } from "@/lib/summit";
 import { TAG, delay, tilt } from "@/lib/styles";
 
@@ -46,6 +47,7 @@ export function Hero() {
           <strong className="text-navy">Theme:</strong> Floating Solar Architecture: Global
           Blueprints for Southwest Nigeria’s Clean Energy Future
         </p>
+        <Countdown />
         <div className="flex flex-wrap justify-center gap-3">
           <PrimaryButton href="#rsvp">RSVP now</PrimaryButton>
           <SecondaryButton href="#programme">View Programme</SecondaryButton>
