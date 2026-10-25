@@ -16,21 +16,29 @@ function countUp(el: HTMLElement) {
   requestAnimationFrame(step);
 }
 
+// data-reveal="right" slides in from the right instead of fading up.
+const FROM = { up: "translateY(40px)", right: "translateX(120px)" };
+const STAGGER = 120;
+
+// "backwards" holds the first frame through the delay, then hands control back
+// to CSS when done so hover transforms still work.
 function show(el: HTMLElement, delay: number) {
   el.style.opacity = "";
+  const from = el.dataset.reveal === "right" ? FROM.right : FROM.up;
   el.animate(
     [
-      { opacity: 0, transform: "translateY(40px)" },
+      { opacity: 0, transform: from },
       { opacity: 1, transform: "none" },
     ],
-    { duration: 800, delay, easing: EASE, fill: "both" },
+    { duration: 800, delay, easing: EASE, fill: "backwards" },
   );
   el.classList.add("is-drawn");
   el.querySelectorAll<HTMLElement>("[data-count]").forEach(countUp);
 }
 
 // Fades up every [data-reveal] element as it scrolls into view, drawing any
-// map outlines and counting up any figures inside it. Renders nothing.
+// map outlines and counting up any figures inside it. Slide-in cards that
+// appear together play one after another. Renders nothing.
 export function RevealOnScroll() {
   useEffect(() => {
     const targets = document.querySelectorAll<HTMLElement>("[data-reveal]");
@@ -45,18 +53,24 @@ export function RevealOnScroll() {
 
     const io = new IntersectionObserver(
       (entries) => {
+        let slides = 0;
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
-          io.unobserve(entry.target);
-          show(entry.target as HTMLElement, 0);
+          const el = entry.target as HTMLElement;
+          io.unobserve(el);
+          show(el, el.dataset.reveal === "right" ? STAGGER * slides++ : 0);
         }
       },
       { threshold: 0.15 },
     );
 
+    let slides = 0;
     targets.forEach((el) => {
+      // Cards in a scrolling carousel are already moving, so they skip the reveal.
+      const carousel = el.closest<HTMLElement>("[data-carousel]");
+      if (carousel && carousel.scrollWidth > carousel.clientWidth) return;
       if (el.getBoundingClientRect().top < window.innerHeight) {
-        show(el, 100);
+        show(el, 100 + (el.dataset.reveal === "right" ? STAGGER * slides++ : 0));
       } else {
         el.style.opacity = "0";
         io.observe(el);

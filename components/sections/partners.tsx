@@ -1,4 +1,5 @@
 import { PartnerCard } from "@/components/partner-card";
+import { PartnerCarousel } from "@/components/partner-carousel";
 import { PARTNERS } from "@/lib/summit";
 import { DISPLAY, GUTTER, SECTION_Y } from "@/lib/styles";
 
@@ -7,7 +8,7 @@ export function Partners() {
     <section className={`bg-navy text-white ${GUTTER} ${SECTION_Y}`}>
       <div data-reveal="" className="mb-12 flex flex-wrap items-end justify-between gap-6">
         <h2 className={`${DISPLAY} text-[clamp(44px,5vw,80px)] leading-[.95]`}>
-          Global engineering,
+          Global
           <br />
           <span className="text-sky">broadcast live</span>
         </h2>
@@ -16,11 +17,11 @@ export function Partners() {
           Zoom broadcast.
         </p>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-[18px]">
+      <PartnerCarousel>
         {PARTNERS.map((p) => (
           <PartnerCard key={p.name} partner={p} />
         ))}
-      </div>
+      </PartnerCarousel>
     </section>
   );
 }

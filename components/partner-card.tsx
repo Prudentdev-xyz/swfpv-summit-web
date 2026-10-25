@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SessionStatus } from "@/components/session-status";
 import type { Partner } from "@/lib/summit";
 import { DISPLAY } from "@/lib/styles";
 
@@ -6,8 +7,8 @@ export function PartnerCard({ partner }: { partner: Partner }) {
   const { logo } = partner;
   return (
     <article
-      data-reveal=""
-      className="flex flex-col gap-4 rounded-[20px] bg-white p-[18px] text-navy transition-transform duration-300 hover:-translate-y-1.5 hover:-rotate-1"
+      data-reveal="right"
+      className="flex w-full flex-col gap-4 rounded-[20px] bg-white p-[18px] text-navy transition-transform duration-300 hover:-translate-y-1.5 hover:-rotate-1"
     >
       <div
         className="relative flex h-[140px] items-center justify-center overflow-hidden rounded-xl"
@@ -32,10 +33,7 @@ export function PartnerCard({ partner }: { partner: Partner }) {
       <div className="flex flex-1 flex-col gap-3 px-1.5 pb-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <span className="text-sm font-bold text-ocean">{partner.country}</span>
-          <span className="inline-flex h-7 items-center gap-1.5 rounded-full bg-sky px-2.5 text-xs font-extrabold whitespace-nowrap text-white">
-            <span className="anim-blink size-[7px] rounded-full bg-white" />
-            Live via Zoom
-          </span>
+          <SessionStatus start={partner.start} end={partner.end} />
         </div>
         <h3 className={`${DISPLAY} text-[28px] leading-none`}>{partner.name}</h3>
         <p className="m-0 flex-1 text-[15px] leading-[1.55] text-pretty text-muted">{partner.talk}</p>
