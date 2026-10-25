@@ -46,12 +46,12 @@ export function Header() {
     >
       <a href="#top" onClick={closeMenu} className="flex items-center">
         <Image
-          src="/dolf-logo.png"
-          alt="D-OLF"
-          width={476}
-          height={196}
+          src="/dolf-hydrometric-logo.png"
+          alt="D-OLF Hydrometric Nigeria Limited"
+          width={256}
+          height={152}
           preload
-          className="block h-10 w-auto"
+          className="block h-[52px] w-auto"
         />
       </a>
       <div className="flex items-center gap-[clamp(12px,2.6vw,36px)]">
