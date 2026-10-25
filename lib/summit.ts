@@ -89,9 +89,9 @@ export const PROGRAMME: ProgrammeDay[] = [
     { time: '11:00 AM – 12:00 PM', type: 'Arrival', quietLabel: 'Departure', title: 'Vote of Thanks, Delegate Checkout, and Official Departures' }] }
 ];
 export const PEOPLE: Person[] = [
-  { photo: '/head-1.jpg', host: true, name: 'Engr. Idowu Adeshina', role: 'Managing Director/CEO, D-OLF Hydrometric Nigeria Limited', when: 'Day 1 · 02:00 PM & 03:45 PM', bg: '#2B266A', sub: '#DCE6F5' },
-  { photo: '/head-2.jpg', name: 'Professor S.J. Ojolo', role: 'University of Lagos (UNILAG) & Lead Technical Consultant', when: 'Day 1 · 03:00 PM', bg: '#29BFF5', sub: '#FFFFFF' },
-  { photo: '/head-3.jpg', name: 'Professor Shakirudeen Odunuga', role: 'University of Lagos (UNILAG) & Lead ESIA Consultant', when: 'Day 2 · 09:15 AM', bg: '#1593C9', sub: '#FFFFFF' },
+  { photo: '/idowu-adeshina-portrait.jpg', host: true, name: 'Engr. Idowu Adeshina', role: 'Managing Director/CEO, D-OLF Hydrometric Nigeria Limited', when: 'Day 1 · 02:00 PM & 03:45 PM', bg: '#2B266A', sub: '#DCE6F5' },
+  { photo: '/sj-ojolo-portrait.jpg', name: 'Professor S.J. Ojolo', role: 'University of Lagos (UNILAG) & Lead Technical Consultant', when: 'Day 1 · 03:00 PM', bg: '#29BFF5', sub: '#FFFFFF' },
+  { photo: '/shakirudeen-odunuga-portrait.jpg', name: 'Professor Shakirudeen Odunuga', role: 'University of Lagos (UNILAG) & Lead ESIA Consultant', when: 'Day 2 · 09:15 AM', bg: '#1593C9', sub: '#FFFFFF' },
   { photo: '/head-4.jpg', name: 'Dr. Tolu Osekita', role: 'Managing Partner, Mente Energy', when: 'Day 2 · 11:00 AM', bg: '#36318A', sub: '#DCE6F5' }
 ];
 export const PARTNERS: Partner[] = [
