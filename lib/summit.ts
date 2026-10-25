@@ -108,7 +108,7 @@ export const PARTNERS: Partner[] = [
   { name: 'Heliorec', country: 'France', talk: 'Deploying Compact, Eco-friendly Floating Solar Structures in Challenging Hydrological Environments', when: 'Day 1 · 02:30 PM' },
   { name: 'NRG Island', country: 'Italy', talk: 'Modular Floating Architectures and Scale Optimisation for Utility Projects', when: 'Day 1 · 02:30 PM', logo: { src: '/logo-nrg.png', width: 2362, height: 2368, bg: '#18213F', maxW: '120px' } },
   { name: 'Seaflex', country: 'Sweden', talk: 'Elastic Mooring Technology: Managing Severe Water Level Fluctuations and Structural Integrity', when: 'Day 2 · 10:00 AM', logo: { src: '/logo-seaflex.webp', width: 772, height: 262, bg: '#FFFFFF', maxW: '86%' } },
-  { name: 'Green Power & Storage (GPS)', country: 'Canada', talk: 'Hybridization, global energy storage and power stabilization technologies', when: 'Day 2 · 03:00 PM' }
+  { name: 'Green Power & Storage (GPS)', country: 'Canada', talk: 'Hybridization, global energy storage and power stabilization technologies', when: 'Day 2 · 03:00 PM', logo: { src: '/logo-gps.png', width: 800, height: 298, bg: '#FFFFFF', maxW: '80%' } }
 ];
 export const DAMS: Dam[] = [{ name: 'Asejire', state: 'Oyo/Osun' }, { name: 'Owena', state: 'Ondo' }, { name: 'Owalla', state: 'Osun' }, { name: 'Oyan', state: 'Ogun' }, { name: 'Ero', state: 'Ekiti' }];
 export const STATS: Stat[] = [
@@ -132,16 +132,17 @@ export const CONTACT = {
   website: 'https://dolfhydrometric.com',
 };
 
-export type StakeholderLogo = { src: string; alt: string; width: number; height: number; bg: string; maxH: string };
+export type StakeholderLogo = { src: string; alt: string; width: number; height: number; maxH: string };
 
 export const STAKEHOLDER_LOGOS: StakeholderLogo[] = [
-  { src: '/logo-borbda.jpg', alt: 'Benin-Owena River Basin Development Authority', width: 1024, height: 1024, bg: 'bg-white border-2 border-line', maxH: 'max-h-[82px]' },
-  { src: '/logo-nrg.png', alt: 'NRG Island', width: 2362, height: 2368, bg: 'bg-[#18213F]', maxH: 'max-h-[90px]' },
-  { src: '/logo-seaflex.webp', alt: 'Seaflex', width: 772, height: 262, bg: 'bg-white border-2 border-line', maxH: 'max-h-[70px]' },
+  { src: '/logo-borbda-clear.png', alt: 'Benin-Owena River Basin Development Authority', width: 400, height: 399, maxH: 'max-h-[96px]' },
+  { src: '/logo-nrg-clear.png', alt: 'NRG Island', width: 800, height: 725, maxH: 'max-h-[88px]' },
+  { src: '/logo-seaflex-clear.png', alt: 'Seaflex', width: 726, height: 172, maxH: 'max-h-[52px]' },
+  { src: '/logo-gps.png', alt: 'Green Power & Storage (GPS)', width: 800, height: 298, maxH: 'max-h-[60px]' },
 ];
 
 /** Stakeholders with no logo file yet; they show as name tiles. */
-export const STAKEHOLDER_NAMES = ['Heliorec', 'GPS'];
+export const STAKEHOLDER_NAMES = ['Heliorec'];
 
 /** Day 1 opening session, 1:00 PM West Africa Time. */
 export const SUMMIT_START = new Date('2026-12-03T13:00:00+01:00');

@@ -13,7 +13,7 @@ export function Stakeholders() {
           {STAKEHOLDER_LOGOS.map((l) => (
             <div
               key={l.src}
-              className={`flex h-[110px] w-[140px] items-center justify-center rounded-2xl p-3.5 sm:w-[180px] ${l.bg}`}
+              className="flex h-[110px] w-[140px] items-center justify-center sm:w-[180px]"
             >
               <Image
                 src={l.src}
@@ -28,7 +28,7 @@ export function Stakeholders() {
           {STAKEHOLDER_NAMES.map((name) => (
             <div
               key={name}
-              className="flex h-[110px] w-[140px] items-center justify-center rounded-2xl border-2 border-line bg-ice font-display text-[28px] text-ocean uppercase sm:w-[180px]"
+              className="flex h-[110px] w-[140px] items-center justify-center font-display text-[28px] text-ocean uppercase sm:w-[180px]"
             >
               {name}
             </div>
