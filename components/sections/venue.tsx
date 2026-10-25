@@ -46,14 +46,9 @@ export function Venue() {
           A hybrid summit: in-person sessions at IITA, with international partners presenting
           through live Zoom broadcasts.
         </p>
-        <div className="grid grid-cols-[130px_minmax(0,1fr)] overflow-hidden rounded-2xl bg-sky text-white">
-          <div className="relative min-h-[140px] bg-mist">
-            <Image src="/room.jpg" alt="VIP accommodation room" fill sizes="130px" className="object-cover" />
-          </div>
-          <div className="flex flex-col justify-center gap-1.5 px-[22px] py-5">
-            <span className="text-[13px] font-extrabold tracking-[.06em] uppercase">VIP package · Included</span>
-            <span className="text-xl leading-[1.25] font-extrabold">2 nights full-board accommodation</span>
-          </div>
+        <div className="flex flex-col justify-center gap-1.5 rounded-2xl bg-sky px-[22px] py-5 text-white">
+          <span className="text-[13px] font-extrabold tracking-[.06em] uppercase">VIP package · Included</span>
+          <span className="text-xl leading-[1.25] font-extrabold">2 nights full-board accommodation</span>
         </div>
         <SecondaryButton
           href="https://www.google.com/maps/search/?api=1&query=IITA+Conference+Center+Ibadan"
