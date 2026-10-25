@@ -15,7 +15,7 @@ import { Venue } from "@/components/sections/venue";
 
 export default function Home() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-white">
+    <div className="min-h-screen overflow-x-clip bg-white">
       <Header />
       <RevealOnScroll />
       <Hero />
