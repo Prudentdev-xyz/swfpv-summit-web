@@ -49,16 +49,6 @@ export type Partner = {
 
 export type Stat = { n: number; unit: string; label: string };
 
-export type StripPhoto = {
-  /** Photo in /public; tiles without one show `fallback` on a brand colour. */
-  src?: string;
-  label: string;
-  fallback?: string;
-  height: number;
-  rotate: number;
-  bg: string;
-};
-
 export type Dam = { name: string; state: string };
 
 export const PROGRAMME: ProgrammeDay[] = [
@@ -116,13 +106,6 @@ export const STATS: Stat[] = [
   { n: 5, unit: '', label: 'States: Oyo, Ogun, Osun, Ondo, Ekiti' },
   { n: 5, unit: '', label: 'Dams: Asejire, Owena, Owalla, Oyan, Ero' },
   { n: 4, unit: '', label: 'International partners, live via Zoom' }
-];
-export const STRIP: StripPhoto[] = [
-  { src: '/img-d.jpg', label: 'Summit event', height: 220, rotate: -4, bg: '#2B266A' },
-  { label: 'Floating solar', fallback: '150MWp', height: 280, rotate: 2, bg: '#29BFF5' },
-  { src: '/img-b.jpg', label: 'Dam and reservoir', height: 320, rotate: 0, bg: '#1593C9' },
-  { src: '/img-a.jpg', label: 'Delegates', height: 270, rotate: -2, bg: '#29BFF5' },
-  { src: '/img-e.jpg', label: 'Summit event', height: 230, rotate: 4, bg: '#2B266A' }
 ];
 export const TICKER = ['Floating Solar Architecture', 'Southwest Nigeria', 'Clean Energy Future', '150MWp', 'RSVP 09127975829'];
 

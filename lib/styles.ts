@@ -9,6 +9,6 @@ export const TAG = "rounded-md px-3 py-1.5 text-[13px] font-extrabold tracking-[
 
 export const delay = (ms: number): CSSProperties => ({ animationDelay: `${ms}ms` });
 
-/** Rotation plus entrance delay for the anim-pop and anim-tilt classes. */
+/** Rotation plus entrance delay for the anim-pop class. */
 export const tilt = (deg: number, ms: number) =>
   ({ "--r": `${deg}deg`, animationDelay: `${ms}ms` }) as CSSProperties;
