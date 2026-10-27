@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import { SessionStatus } from "@/components/session-status";
 import type { Partner } from "@/lib/summit";
@@ -11,8 +12,8 @@ export function PartnerCard({ partner }: { partner: Partner }) {
       className="flex w-full flex-col gap-4 rounded-[20px] bg-surface p-[18px] text-heading transition-transform duration-300 hover:-translate-y-1.5 hover:-rotate-1"
     >
       <div
-        className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-xl"
-        style={{ background: speaker ? "var(--ice)" : (logo?.bg ?? "var(--ice)") }}
+        className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-xl bg-(--logo-bg) ${logo?.dark ? "dark:bg-ice" : ""}`}
+        style={{ "--logo-bg": speaker ? "var(--ice)" : (logo?.bg ?? "var(--ice)") } as CSSProperties}
       >
         {speaker ? (
           <Image
@@ -23,15 +24,28 @@ export function PartnerCard({ partner }: { partner: Partner }) {
             className="object-cover object-[center_25%]"
           />
         ) : logo ? (
-          <Image
-            src={logo.src}
-            alt={partner.name}
-            width={logo.width}
-            height={logo.height}
-            sizes="240px"
-            className="block h-auto max-h-[120px] w-auto object-contain"
-            style={{ maxWidth: logo.maxW }}
-          />
+          <>
+            <Image
+              src={logo.src}
+              alt={partner.name}
+              width={logo.width}
+              height={logo.height}
+              sizes="240px"
+              className={`block h-auto max-h-[120px] w-auto object-contain ${logo.dark ? "dark:hidden" : ""}`}
+              style={{ maxWidth: logo.maxW }}
+            />
+            {logo.dark && (
+              <Image
+                src={logo.dark.src}
+                alt={partner.name}
+                width={logo.dark.width}
+                height={logo.dark.height}
+                sizes="240px"
+                className="hidden h-auto max-h-[120px] w-auto object-contain dark:block"
+                style={{ maxWidth: logo.maxW }}
+              />
+            )}
+          </>
         ) : (
           <span className="px-4 text-center font-display text-[30px] leading-none text-ocean uppercase">
             {partner.name.replace(/ \(.*\)$/, "")}

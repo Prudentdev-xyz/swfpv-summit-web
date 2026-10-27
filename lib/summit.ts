@@ -47,7 +47,7 @@ export type Partner = {
   start: string;
   end: string;
   /** Logo file in /public; partners without one show their name instead. */
-  logo?: { src: string; width: number; height: number; bg: string; maxW: string };
+  logo?: { src: string; width: number; height: number; bg: string; maxW: string; dark?: DarkLogo };
   /** Presenter headshot; when set, the card shows the speaker instead of the logo. */
   speaker?: { name: string; photo: string };
 };
@@ -100,7 +100,7 @@ export const PEOPLE: Person[] = [
   { photo: '/head-4.jpg', name: 'Dr. Tolu Osekita', role: 'Managing Partner, Mente Energy', when: 'Day 2 · 11:00 AM', bg: '#36318A', sub: '#DCE6F5' }
 ];
 export const PARTNERS: Partner[] = [
-  { name: 'Heliorec', country: 'France', talk: 'Deploying Compact, Eco-friendly Floating Solar Structures in Challenging Hydrological Environments', when: 'Day 1 · 02:30 PM', start: '2026-12-03T14:30:00+01:00', end: '2026-12-03T14:50:00+01:00' , logo: { src: '/logo-heliorec.png', width: 600, height: 133, bg: '#FFFFFF', maxW: '86%' } },
+  { name: 'Heliorec', country: 'France', talk: 'Deploying Compact, Eco-friendly Floating Solar Structures in Challenging Hydrological Environments', when: 'Day 1 · 02:30 PM', start: '2026-12-03T14:30:00+01:00', end: '2026-12-03T14:50:00+01:00' , logo: { src: '/logo-heliorec.png', width: 600, height: 133, bg: '#FFFFFF', maxW: '86%', dark: { src: '/logo-heliorec-dark.png', width: 895, height: 202 } } },
   { name: 'NRG Island', country: 'Italy', talk: 'Modular Floating Architectures and Scale Optimisation for Utility Projects', when: 'Day 1 · 02:30 PM', start: '2026-12-03T14:30:00+01:00', end: '2026-12-03T14:50:00+01:00', logo: { src: '/logo-nrg.png', width: 2362, height: 2368, bg: '#18213F', maxW: '120px' }, speaker: { name: 'Mr. Nicolas Guariglia', photo: '/nicolas-guariglia.jpg' } },
   { name: 'Seaflex', country: 'Sweden', talk: 'Elastic Mooring Technology: Managing Severe Water Level Fluctuations and Structural Integrity', when: 'Day 2 · 10:00 AM', start: '2026-12-04T10:00:00+01:00', end: '2026-12-04T10:25:00+01:00', logo: { src: '/logo-seaflex.webp', width: 772, height: 262, bg: '#FFFFFF', maxW: '86%' }, speaker: { name: 'Mr. Thomas Stavert', photo: '/thomas-stavert-portrait.jpg' } },
   { name: 'Green Power & Storage (GPS)', country: 'Canada', talk: 'Hybridization, global energy storage and power stabilization technologies', when: 'Day 2 · 03:00 PM', start: '2026-12-04T15:00:00+01:00', end: '2026-12-04T15:25:00+01:00', logo: { src: '/logo-gps.png', width: 800, height: 298, bg: '#FFFFFF', maxW: '80%' }, speaker: { name: 'Mr. Shannon Hammer', photo: '/shannon-hammer.jpg' } }
@@ -120,19 +120,22 @@ export const CONTACT = {
   website: 'https://dolfhydrometric.com',
 };
 
-export type StakeholderLogo = { src: string; alt: string; width: number; height: number; maxH: string };
+/** Light-on-transparent version shown in dark mode. */
+export type DarkLogo = { src: string; width: number; height: number };
+
+export type StakeholderLogo = { src: string; alt: string; width: number; height: number; maxH: string; dark: DarkLogo };
 
 /** Organisers first, then government bodies, then the international partners. */
 export const STAKEHOLDER_LOGOS: StakeholderLogo[] = [
-  { src: '/logo-dolf-hydrometric.png', alt: 'D-OLF Hydrometric Nigeria Limited', width: 248, height: 144, maxH: 'max-h-[80px]' },
-  { src: '/logo-dolf-southwest.png', alt: 'D-OLF Southwest Clean Energy Infrastructure Limited', width: 600, height: 143, maxH: 'max-h-[60px]' },
-  { src: '/logo-swdc.png', alt: 'South West Development Commission', width: 348, height: 170, maxH: 'max-h-[72px]' },
-  { src: '/logo-oorbda.png', alt: 'Ogun-Oshun River Basin Development Authority', width: 300, height: 300, maxH: 'max-h-[88px]' },
-  { src: '/logo-borbda-clear.png', alt: 'Benin-Owena River Basin Development Authority', width: 400, height: 399, maxH: 'max-h-[88px]' },
-  { src: '/logo-heliorec.png', alt: 'HelioRec', width: 600, height: 133, maxH: 'max-h-[52px]' },
-  { src: '/logo-nrg-clear.png', alt: 'NRG Island', width: 800, height: 725, maxH: 'max-h-[84px]' },
-  { src: '/logo-seaflex-clear.png', alt: 'Seaflex', width: 726, height: 172, maxH: 'max-h-[52px]' },
-  { src: '/logo-gps.png', alt: 'Green Power & Storage (GPS)', width: 800, height: 298, maxH: 'max-h-[60px]' },
+  { src: '/logo-dolf-hydrometric.png', alt: 'D-OLF Hydrometric Nigeria Limited', width: 248, height: 144, maxH: 'max-h-[80px]', dark: { src: '/dolf-hydrometric-logo-dark.png', width: 249, height: 146 } },
+  { src: '/logo-dolf-southwest.png', alt: 'D-OLF Southwest Clean Energy Infrastructure Limited', width: 600, height: 143, maxH: 'max-h-[60px]', dark: { src: '/logo-southwest-dark.png', width: 761, height: 183 } },
+  { src: '/logo-swdc.png', alt: 'South West Development Commission', width: 348, height: 170, maxH: 'max-h-[72px]', dark: { src: '/logo-swdc-dark.png', width: 348, height: 170 } },
+  { src: '/logo-oorbda.png', alt: 'Ogun-Oshun River Basin Development Authority', width: 300, height: 300, maxH: 'max-h-[88px]', dark: { src: '/logo-oorbda-dark.png', width: 497, height: 497 } },
+  { src: '/logo-borbda-clear.png', alt: 'Benin-Owena River Basin Development Authority', width: 400, height: 399, maxH: 'max-h-[88px]', dark: { src: '/logo-borbda-dark.png', width: 478, height: 476 } },
+  { src: '/logo-heliorec.png', alt: 'HelioRec', width: 600, height: 133, maxH: 'max-h-[52px]', dark: { src: '/logo-heliorec-dark.png', width: 895, height: 202 } },
+  { src: '/logo-nrg-clear.png', alt: 'NRG Island', width: 800, height: 725, maxH: 'max-h-[84px]', dark: { src: '/logo-nrg-dark.png', width: 372, height: 338 } },
+  { src: '/logo-seaflex-clear.png', alt: 'Seaflex', width: 726, height: 172, maxH: 'max-h-[52px]', dark: { src: '/logo-seaflex-dark.png', width: 759, height: 180 } },
+  { src: '/logo-gps.png', alt: 'Green Power & Storage (GPS)', width: 800, height: 298, maxH: 'max-h-[60px]', dark: { src: '/logo-gps-dark.png', width: 795, height: 296 } },
 ];
 
 /** Day 1 opening session, 1:00 PM West Africa Time. */
