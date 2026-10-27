@@ -125,10 +125,8 @@ export type DarkLogo = { src: string; width: number; height: number };
 
 export type StakeholderLogo = { src: string; alt: string; width: number; height: number; maxH: string; dark: DarkLogo };
 
-/** Organisers first, then government bodies, then the international partners. */
-export const STAKEHOLDER_LOGOS: StakeholderLogo[] = [
-  { src: '/logo-dolf-hydrometric.png', alt: 'D-OLF Hydrometric Nigeria Limited', width: 248, height: 144, maxH: 'max-h-[80px]', dark: { src: '/dolf-hydrometric-logo-dark.png', width: 249, height: 146 } },
-  { src: '/logo-dolf-southwest.png', alt: 'D-OLF Southwest Clean Energy Infrastructure Limited', width: 600, height: 143, maxH: 'max-h-[60px]', dark: { src: '/logo-southwest-dark.png', width: 761, height: 183 } },
+/** Government bodies first, then the international partners. */
+export const PARTNER_LOGOS: StakeholderLogo[] = [
   { src: '/logo-swdc.png', alt: 'South West Development Commission', width: 348, height: 170, maxH: 'max-h-[72px]', dark: { src: '/logo-swdc-dark.png', width: 348, height: 170 } },
   { src: '/logo-oorbda.png', alt: 'Ogun-Oshun River Basin Development Authority', width: 300, height: 300, maxH: 'max-h-[88px]', dark: { src: '/logo-oorbda-dark.png', width: 497, height: 497 } },
   { src: '/logo-borbda-clear.png', alt: 'Benin-Owena River Basin Development Authority', width: 400, height: 399, maxH: 'max-h-[88px]', dark: { src: '/logo-borbda-dark.png', width: 478, height: 476 } },
@@ -136,6 +134,11 @@ export const STAKEHOLDER_LOGOS: StakeholderLogo[] = [
   { src: '/logo-nrg-clear.png', alt: 'NRG Island', width: 800, height: 725, maxH: 'max-h-[84px]', dark: { src: '/logo-nrg-dark.png', width: 372, height: 338 } },
   { src: '/logo-seaflex-clear.png', alt: 'Seaflex', width: 726, height: 172, maxH: 'max-h-[52px]', dark: { src: '/logo-seaflex-dark.png', width: 759, height: 180 } },
   { src: '/logo-gps.png', alt: 'Green Power & Storage (GPS)', width: 800, height: 298, maxH: 'max-h-[60px]', dark: { src: '/logo-gps-dark.png', width: 795, height: 296 } },
+];
+
+export const SPONSOR_LOGOS: StakeholderLogo[] = [
+  { src: '/logo-dolf-hydrometric.png', alt: 'D-OLF Hydrometric Nigeria Limited', width: 248, height: 144, maxH: 'max-h-[80px]', dark: { src: '/dolf-hydrometric-logo-dark.png', width: 249, height: 146 } },
+  { src: '/logo-dolf-southwest.png', alt: 'D-OLF Southwest Clean Energy Infrastructure Limited', width: 600, height: 143, maxH: 'max-h-[60px]', dark: { src: '/logo-southwest-dark.png', width: 761, height: 183 } },
 ];
 
 /** Day 1 opening session, 1:00 PM West Africa Time. */
