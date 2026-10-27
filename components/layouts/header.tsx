@@ -52,7 +52,14 @@ export function Header() {
           width={256}
           height={152}
           preload
-          className="block h-[52px] w-auto dark:rounded-lg dark:bg-white dark:px-1.5"
+          className="block h-[52px] w-auto dark:hidden"
+        />
+        <Image
+          src="/dolf-hydrometric-logo-dark.png"
+          alt="D-OLF Hydrometric Nigeria Limited"
+          width={249}
+          height={146}
+          className="hidden h-[52px] w-auto dark:block"
         />
       </a>
       <div className="flex items-center gap-[clamp(12px,2.6vw,36px)]">
