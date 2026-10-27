@@ -71,7 +71,8 @@ export function Header() {
           ))}
         </div>
         <ThemeToggle />
-        <PrimaryButton href="#rsvp" size="sm" onClick={closeMenu}>
+        {/* On phones the hamburger menu carries its own Register button. */}
+        <PrimaryButton href="#rsvp" size="sm" onClick={closeMenu} className="max-[820px]:hidden">
           Register
         </PrimaryButton>
         <button
