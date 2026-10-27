@@ -8,7 +8,7 @@ const SIZES = {
 
 type PrimaryButtonProps = ComponentProps<"a"> & { size?: keyof typeof SIZES };
 
-/** Navy pill link with a sky arrow badge, used for the main RSVP calls. */
+/** Navy pill link with a sky arrow badge, used for the main Register calls. */
 export function PrimaryButton({ size = "lg", className = "", children, ...props }: PrimaryButtonProps) {
   const s = SIZES[size];
   return (

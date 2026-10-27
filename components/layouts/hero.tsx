@@ -67,7 +67,7 @@ export function Hero() {
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <PrimaryButton href="#rsvp" className="ring-2 ring-white">
-            RSVP now
+            Register now
           </PrimaryButton>
           <SecondaryButton href="#programme">View Programme</SecondaryButton>
         </div>

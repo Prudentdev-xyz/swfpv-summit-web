@@ -112,7 +112,7 @@ export const STATS: Stat[] = [
   { n: 5, unit: '', label: 'Dams: Asejire, Owena, Owalla, Oyan, Ero' },
   { n: 4, unit: '', label: 'International partners, live via Zoom' }
 ];
-export const TICKER = ['Floating Solar Architecture', 'Southwest Nigeria', 'Clean Energy Future', '150MWp', 'RSVP 09127975829'];
+export const TICKER = ['Floating Solar Architecture', 'Southwest Nigeria', 'Clean Energy Future', '150MWp', 'Register: 09127975829'];
 
 export const CONTACT = {
   phone: { display: '09127975829', href: 'tel:+2349127975829' },

@@ -65,7 +65,7 @@ export function Header() {
         </div>
         <ThemeToggle />
         <PrimaryButton href="#rsvp" size="sm" onClick={closeMenu}>
-          RSVP
+          Register
         </PrimaryButton>
         <button
           type="button"
@@ -112,7 +112,7 @@ export function Header() {
           onClick={closeMenu}
           className="mt-3 flex h-[52px] items-center justify-center rounded-full bg-navy text-base font-bold text-white hover:bg-ocean hover:text-white"
         >
-          RSVP
+          Register
         </a>
       </div>
     </nav>
