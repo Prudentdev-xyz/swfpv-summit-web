@@ -48,6 +48,8 @@ export type Partner = {
   end: string;
   /** Logo file in /public; partners without one show their name instead. */
   logo?: { src: string; width: number; height: number; bg: string; maxW: string };
+  /** Presenter headshot; when set, the card shows the speaker instead of the logo. */
+  speaker?: { name: string; photo: string };
 };
 
 export type Stat = { n: number; unit: string; label: string };
@@ -99,9 +101,9 @@ export const PEOPLE: Person[] = [
 ];
 export const PARTNERS: Partner[] = [
   { name: 'Heliorec', country: 'France', talk: 'Deploying Compact, Eco-friendly Floating Solar Structures in Challenging Hydrological Environments', when: 'Day 1 · 02:30 PM', start: '2026-12-03T14:30:00+01:00', end: '2026-12-03T14:50:00+01:00' , logo: { src: '/logo-heliorec.png', width: 600, height: 133, bg: '#FFFFFF', maxW: '86%' } },
-  { name: 'NRG Island', country: 'Italy', talk: 'Modular Floating Architectures and Scale Optimisation for Utility Projects', when: 'Day 1 · 02:30 PM', start: '2026-12-03T14:30:00+01:00', end: '2026-12-03T14:50:00+01:00', logo: { src: '/logo-nrg.png', width: 2362, height: 2368, bg: '#18213F', maxW: '120px' } },
-  { name: 'Seaflex', country: 'Sweden', talk: 'Elastic Mooring Technology: Managing Severe Water Level Fluctuations and Structural Integrity', when: 'Day 2 · 10:00 AM', start: '2026-12-04T10:00:00+01:00', end: '2026-12-04T10:25:00+01:00', logo: { src: '/logo-seaflex.webp', width: 772, height: 262, bg: '#FFFFFF', maxW: '86%' } },
-  { name: 'Green Power & Storage (GPS)', country: 'Canada', talk: 'Hybridization, global energy storage and power stabilization technologies', when: 'Day 2 · 03:00 PM', start: '2026-12-04T15:00:00+01:00', end: '2026-12-04T15:25:00+01:00', logo: { src: '/logo-gps.png', width: 800, height: 298, bg: '#FFFFFF', maxW: '80%' } }
+  { name: 'NRG Island', country: 'Italy', talk: 'Modular Floating Architectures and Scale Optimisation for Utility Projects', when: 'Day 1 · 02:30 PM', start: '2026-12-03T14:30:00+01:00', end: '2026-12-03T14:50:00+01:00', logo: { src: '/logo-nrg.png', width: 2362, height: 2368, bg: '#18213F', maxW: '120px' }, speaker: { name: 'Mr. Nicolas Guariglia', photo: '/nicolas-guariglia.jpg' } },
+  { name: 'Seaflex', country: 'Sweden', talk: 'Elastic Mooring Technology: Managing Severe Water Level Fluctuations and Structural Integrity', when: 'Day 2 · 10:00 AM', start: '2026-12-04T10:00:00+01:00', end: '2026-12-04T10:25:00+01:00', logo: { src: '/logo-seaflex.webp', width: 772, height: 262, bg: '#FFFFFF', maxW: '86%' }, speaker: { name: 'Mr. Thomas Stavert', photo: '/thomas-stavert-portrait.jpg' } },
+  { name: 'Green Power & Storage (GPS)', country: 'Canada', talk: 'Hybridization, global energy storage and power stabilization technologies', when: 'Day 2 · 03:00 PM', start: '2026-12-04T15:00:00+01:00', end: '2026-12-04T15:25:00+01:00', logo: { src: '/logo-gps.png', width: 800, height: 298, bg: '#FFFFFF', maxW: '80%' }, speaker: { name: 'Mr. Shannon Hammer', photo: '/shannon-hammer.jpg' } }
 ];
 export const DAMS: Dam[] = [{ name: 'Asejire', state: 'Oyo/Osun' }, { name: 'Owena', state: 'Ondo' }, { name: 'Owalla', state: 'Osun' }, { name: 'Oyan', state: 'Ogun' }, { name: 'Ero', state: 'Ekiti' }];
 export const STATS: Stat[] = [
