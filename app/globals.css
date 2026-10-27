@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* Dark mode follows data-theme on <html>, set before first paint in app/layout.tsx. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+ * Navy, sky and the other brand colours stay fixed. The tokens below them flip
+ * with the theme: surface is the page background, heading the strongest text,
+ * and rule the strong border lines used on light sections.
+ */
 @theme inline {
   --font-sans: var(--font-jakarta), system-ui, sans-serif;
   --font-display: var(--font-anton), Impact, sans-serif;
@@ -8,17 +16,50 @@
   --color-indigo: #36318a;
   --color-ink: #1c1a4a;
   --color-sky: #29bff5;
-  --color-ocean: #1593c9;
-  --color-ice: #e6f7fe;
-  --color-mist: #cdeffc;
-  --color-frost: #f4fbfe;
-  --color-muted: #4a4870;
-  --color-subtle: #6b6990;
-  --color-line: #e1e6f0;
   --color-slate: #a9b8d0;
   --color-pale: #dce6f5;
 
+  --color-surface: var(--surface);
+  --color-heading: var(--heading);
+  --color-rule: var(--rule);
+  --color-ocean: var(--ocean);
+  --color-ice: var(--ice);
+  --color-mist: var(--mist);
+  --color-frost: var(--frost);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+
   --breakpoint-tab: 60rem;
+}
+
+:root {
+  --surface: #ffffff;
+  --heading: #2b266a;
+  --rule: #2b266a;
+  --body: #1c1a4a;
+  --ocean: #1593c9;
+  --ice: #e6f7fe;
+  --mist: #cdeffc;
+  --frost: #f4fbfe;
+  --muted: #4a4870;
+  --subtle: #6b6990;
+  --line: #e1e6f0;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: #0f0e2b;
+  --heading: #f2f5ff;
+  --rule: #4c49a6;
+  --body: #e6e9f5;
+  --ocean: #4cc6f5;
+  --ice: #15143d;
+  --mist: #2b2970;
+  --frost: #131236;
+  --muted: #b9c1dd;
+  --subtle: #8e94b9;
+  --line: #2a2960;
 }
 
 @layer base {
@@ -28,13 +69,13 @@
 
   body {
     margin: 0;
-    background: #ffffff;
-    color: var(--color-ink);
+    background: var(--surface);
+    color: var(--body);
     -webkit-font-smoothing: antialiased;
   }
 
   a {
-    color: var(--color-navy);
+    color: var(--heading);
     text-decoration: none;
   }
 

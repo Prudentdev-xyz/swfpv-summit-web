@@ -6,7 +6,7 @@ export function Speakers() {
   return (
     <section id="speakers" className="scroll-mt-[76px]">
       <div data-reveal="" className={`mb-10 flex flex-wrap items-end justify-between gap-6 ${GUTTER}`}>
-        <h2 className={`${DISPLAY} text-[clamp(48px,6vw,96px)] leading-[.95] text-navy`}>
+        <h2 className={`${DISPLAY} text-[clamp(48px,6vw,96px)] leading-[.95] text-heading`}>
           Host &amp;
           <br />
           <span className="text-sky">Speakers</span>

@@ -10,7 +10,7 @@ export function About() {
     >
       <div data-reveal="" className="flex flex-col gap-[22px]">
         <span className={`${TAG} -rotate-2 self-start bg-sky`}>About the summit</span>
-        <h2 className={`${DISPLAY} text-[clamp(40px,4.4vw,68px)] leading-none text-balance text-navy`}>
+        <h2 className={`${DISPLAY} text-[clamp(40px,4.4vw,68px)] leading-none text-balance text-heading`}>
           Clean power from water the region already holds
         </h2>
         <p className="m-0 text-[17px] leading-[1.7] text-pretty text-muted">
@@ -28,7 +28,7 @@ export function About() {
           {DAMS.map((d) => (
             <span
               key={d.name}
-              className="group inline-flex h-[38px] items-center gap-1.5 rounded-full border-2 border-navy px-4 text-sm font-bold text-navy transition-colors hover:bg-navy hover:text-white"
+              className="group inline-flex h-[38px] items-center gap-1.5 rounded-full border-2 border-rule px-4 text-sm font-bold text-heading transition-colors hover:border-navy hover:bg-navy hover:text-white"
             >
               {d.name}
               <span className="font-medium text-ocean group-hover:text-sky">{d.state}</span>

@@ -33,7 +33,7 @@ export function Programme() {
       className="scroll-mt-[76px] bg-ice px-[clamp(24px,5vw,88px)] py-[72px] sm:py-24 tab:py-[120px]"
     >
       <div data-reveal="" className="mb-10 flex flex-wrap items-end justify-between gap-6">
-        <h2 className="m-0 font-display text-[clamp(48px,6vw,96px)] leading-[.95] font-normal text-navy uppercase">
+        <h2 className="m-0 font-display text-[clamp(48px,6vw,96px)] leading-[.95] font-normal text-heading uppercase">
           Three days
           <br />
           <span className="text-sky">at IITA</span>
@@ -48,8 +48,8 @@ export function Programme() {
                 role="tab"
                 aria-selected={active}
                 onClick={() => setDay(i)}
-                className={`h-12 cursor-pointer rounded-full border-2 border-navy px-4 text-[15px] font-extrabold whitespace-nowrap transition-colors duration-250 sm:h-14 sm:px-6 ${
-                  active ? "bg-navy text-white" : "bg-white text-navy hover:bg-mist"
+                className={`h-12 cursor-pointer rounded-full border-2 border-heading px-4 text-[15px] font-extrabold whitespace-nowrap transition-colors duration-250 sm:h-14 sm:px-6 ${
+                  active ? "bg-heading text-surface" : "bg-surface text-heading hover:bg-mist"
                 }`}
               >
                 {p.label} · {p.date}

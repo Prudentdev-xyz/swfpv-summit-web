@@ -11,15 +11,15 @@ function sessionStyle(type: Session["type"]) {
   }
   if (type === "Live Broadcast") {
     return {
-      card: "bg-white border-sky",
+      card: "bg-surface border-sky",
       time: "text-ocean",
       badge: "bg-sky text-white",
       title: "text-[19px]",
     };
   }
   return {
-    card: "bg-white border-navy",
-    time: "text-navy",
+    card: "bg-surface border-rule",
+    time: "text-heading",
     badge: "bg-navy text-white",
     title: "text-[19px]",
   };
@@ -44,12 +44,12 @@ export function SessionCard({ session }: { session: Session }) {
             {session.quietLabel ?? session.type}
           </span>
           {session.host && (
-            <span className="inline-flex h-[26px] items-center rounded-full bg-mist px-2.5 text-xs font-extrabold text-navy">
+            <span className="inline-flex h-[26px] items-center rounded-full bg-mist px-2.5 text-xs font-extrabold text-heading">
               Host
             </span>
           )}
         </div>
-        <h4 className={`m-0 leading-[1.35] font-extrabold text-pretty text-navy ${s.title}`}>
+        <h4 className={`m-0 leading-[1.35] font-extrabold text-pretty text-heading ${s.title}`}>
           {session.title}
         </h4>
         {session.speaker && (
@@ -62,13 +62,13 @@ export function SessionCard({ session }: { session: Session }) {
             key={pp.name}
             className="flex flex-col gap-[3px] rounded-[10px] bg-ice px-3.5 py-3"
           >
-            <span className="text-sm font-extrabold text-navy">{pp.name}</span>
+            <span className="text-sm font-extrabold text-heading">{pp.name}</span>
             <span className="text-sm leading-normal text-muted">{pp.talk}</span>
           </div>
         ))}
         {session.lines?.map((ln, i) => (
           <p key={i} className="m-0 text-sm leading-[1.6] text-pretty text-muted">
-            {ln.label && <strong className="text-navy">{ln.label}</strong>}
+            {ln.label && <strong className="text-heading">{ln.label}</strong>}
             {ln.text}
           </p>
         ))}

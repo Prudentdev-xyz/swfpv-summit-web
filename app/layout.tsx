@@ -20,9 +20,20 @@ export const metadata: Metadata = {
     "Official VIP invitation to the Southwest Regional Stakeholder Summit on the 150MWp Floating Solar PV Power Plant Infrastructure Pipeline. 3 to 5 December 2026, IITA Conference Center, Ibadan.",
 };
 
+// Runs before first paint: a saved choice wins, otherwise follow the device setting.
+const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${anton.variable} antialiased`}>
+    <html
+      lang="en"
+      data-theme="light"
+      suppressHydrationWarning
+      className={`${jakarta.variable} ${anton.variable} antialiased`}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
       <body className="font-sans">{children}</body>
     </html>
   );

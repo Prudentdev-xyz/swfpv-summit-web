@@ -5,7 +5,7 @@ import { GUTTER, SECTION_PB } from "@/lib/styles";
 export function Stakeholders() {
   return (
     <section className={`${GUTTER} ${SECTION_PB}`}>
-      <div data-reveal="" className="flex flex-col items-center gap-7 border-t-2 border-navy pt-14">
+      <div data-reveal="" className="flex flex-col items-center gap-7 border-t-2 border-rule pt-14">
         <span className="text-[13px] font-extrabold tracking-[.1em] text-ocean uppercase">
           Partners &amp; stakeholders
         </span>
@@ -13,7 +13,7 @@ export function Stakeholders() {
           {STAKEHOLDER_LOGOS.map((l) => (
             <div
               key={l.src}
-              className="flex h-[110px] w-[140px] items-center justify-center sm:w-[180px]"
+              className="flex h-[110px] w-[140px] items-center justify-center rounded-2xl sm:w-[180px] dark:bg-white dark:p-3.5"
             >
               <Image
                 src={l.src}
@@ -28,7 +28,7 @@ export function Stakeholders() {
           {STAKEHOLDER_NAMES.map((name) => (
             <div
               key={name}
-              className="flex h-[110px] w-[140px] items-center justify-center font-display text-[28px] text-ocean uppercase sm:w-[180px]"
+              className="flex h-[110px] w-[140px] items-center justify-center rounded-2xl font-display text-[28px] text-ocean uppercase sm:w-[180px] dark:bg-white dark:text-[#1593C9]"
             >
               {name}
             </div>

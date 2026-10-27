@@ -1,8 +1,9 @@
 import type { ComponentProps } from "react";
 
 const SIZES = {
-  md: "h-[50px] px-6 text-[15px] hover:bg-navy hover:text-white",
-  lg: "h-[58px] bg-white px-7 text-base hover:border-sky hover:bg-sky hover:text-white",
+  // md sits on page sections and follows the theme; lg sits on the dark hero.
+  md: "h-[50px] border-heading px-6 text-[15px] text-heading hover:bg-heading hover:text-surface",
+  lg: "h-[58px] border-navy bg-white px-7 text-base text-navy hover:border-sky hover:bg-sky hover:text-white",
 };
 
 type SecondaryButtonProps = ComponentProps<"a"> & { size?: keyof typeof SIZES };
@@ -12,7 +13,7 @@ export function SecondaryButton({ size = "lg", className = "", ...props }: Secon
   return (
     <a
       {...props}
-      className={`inline-flex items-center rounded-full border-2 border-navy font-extrabold whitespace-nowrap text-navy transition-colors ${SIZES[size]} ${className}`}
+      className={`inline-flex items-center rounded-full border-2 font-extrabold whitespace-nowrap transition-colors ${SIZES[size]} ${className}`}
     />
   );
 }

@@ -4,15 +4,15 @@ import { GUTTER } from "@/lib/styles";
 
 export function Footer() {
   return (
-    <footer className={`bg-white pt-14 pb-9 ${GUTTER}`}>
+    <footer className={`bg-surface pt-14 pb-9 ${GUTTER}`}>
       <div className="grid items-start gap-10 min-[760px]:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)]">
         <div className="flex flex-col gap-4">
-          <Image src="/dolf-hydrometric-logo.png" alt="D-OLF Hydrometric Nigeria Limited" width={256} height={152} className="h-16 w-auto self-start" />
+          <Image src="/dolf-hydrometric-logo.png" alt="D-OLF Hydrometric Nigeria Limited" width={256} height={152} className="h-16 w-auto self-start dark:rounded-lg dark:bg-white dark:px-2" />
           <span className="max-w-[320px] text-[15px] leading-normal text-muted">
             Southwest Regional Stakeholder Summit · 3–5 December 2026
           </span>
         </div>
-        <div className="flex flex-col gap-2 text-[15px] text-navy">
+        <div className="flex flex-col gap-2 text-[15px] text-heading">
           <span className="mb-1.5 text-[13px] font-extrabold tracking-[.06em] text-ocean uppercase">Organisers</span>
           <span>D-OLF Hydrometric Nigeria Limited</span>
           <span>D-OLF Southwest Clean Energy Infrastructure Limited</span>

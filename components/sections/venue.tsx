@@ -33,13 +33,13 @@ export function Venue() {
             </div>
           )}
         </div>
-        <div className="absolute -right-2.5 -bottom-5 rotate-[5deg] rounded-lg bg-sky px-4 py-2.5 text-[15px] font-extrabold text-white shadow-[4px_4px_0_#2B266A]">
+        <div className="absolute -right-2.5 -bottom-5 rotate-[5deg] rounded-lg bg-sky px-4 py-2.5 text-[15px] font-extrabold text-white shadow-[4px_4px_0_#2B266A] dark:shadow-[4px_4px_0_#FFFFFF]">
           Ibadan, Nigeria
         </div>
       </div>
       <div data-reveal="" className="flex flex-col gap-5">
         <span className={`${TAG} -rotate-2 self-start bg-navy`}>Venue &amp; package</span>
-        <h2 className={`${DISPLAY} text-[clamp(34px,3.4vw,54px)] leading-none text-navy`}>
+        <h2 className={`${DISPLAY} text-[clamp(34px,3.4vw,54px)] leading-none text-heading`}>
           International Institute of Tropical Agriculture (IITA) Conference Center
         </h2>
         <p className="m-0 text-base leading-[1.7] text-muted">

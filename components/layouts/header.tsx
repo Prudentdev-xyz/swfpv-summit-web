@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { PrimaryButton } from "@/components/buttons/primary-button";
+import { ThemeToggle } from "@/components/buttons/theme-toggle";
 
 const LINKS = [
   { href: "#about", label: "About" },
@@ -40,8 +41,8 @@ export function Header() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 flex h-[76px] items-center justify-between border-b bg-white px-[clamp(20px,4vw,56px)] transition-[border-color] duration-300 ${
-        scrolled || menuOpen ? "border-line" : "border-white"
+      className={`sticky top-0 z-50 flex h-[76px] items-center justify-between border-b bg-surface px-[clamp(20px,4vw,56px)] transition-[border-color] duration-300 ${
+        scrolled || menuOpen ? "border-line" : "border-surface"
       }`}
     >
       <a href="#top" onClick={closeMenu} className="flex items-center">
@@ -51,17 +52,18 @@ export function Header() {
           width={256}
           height={152}
           preload
-          className="block h-[52px] w-auto"
+          className="block h-[52px] w-auto dark:rounded-lg dark:bg-white dark:px-1.5"
         />
       </a>
       <div className="flex items-center gap-[clamp(12px,2.6vw,36px)]">
         <div className="hidden gap-[clamp(14px,2.2vw,30px)] text-[15px] font-semibold min-[820px]:flex">
           {LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="text-navy hover:text-ocean">
+            <a key={link.href} href={link.href} className="text-heading hover:text-ocean">
               {link.label}
             </a>
           ))}
         </div>
+        <ThemeToggle />
         <PrimaryButton href="#rsvp" size="sm" onClick={closeMenu}>
           RSVP
         </PrimaryButton>
@@ -71,7 +73,7 @@ export function Header() {
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
-          className="flex size-11 cursor-pointer items-center justify-center rounded-full border-[1.5px] border-mist text-navy hover:bg-ice min-[820px]:hidden"
+          className="flex size-11 cursor-pointer items-center justify-center rounded-full border-[1.5px] border-mist text-heading hover:bg-ice min-[820px]:hidden"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
             <path
@@ -90,7 +92,7 @@ export function Header() {
       <div
         id="mobile-menu"
         hidden={!menuOpen}
-        className="absolute inset-x-0 top-full border-b border-line bg-white px-[clamp(20px,4vw,56px)] pt-2 pb-5 shadow-[0_12px_24px_rgba(43,38,106,.08)] min-[820px]:hidden"
+        className="absolute inset-x-0 top-full border-b border-line bg-surface px-[clamp(20px,4vw,56px)] pt-2 pb-5 shadow-[0_12px_24px_rgba(43,38,106,.08)] min-[820px]:hidden"
       >
         <ul className="m-0 flex list-none flex-col p-0">
           {LINKS.map((link) => (
@@ -98,7 +100,7 @@ export function Header() {
               <a
                 href={link.href}
                 onClick={closeMenu}
-                className="flex h-14 items-center text-lg font-semibold text-navy hover:text-ocean"
+                className="flex h-14 items-center text-lg font-semibold text-heading hover:text-ocean"
               >
                 {link.label}
               </a>
