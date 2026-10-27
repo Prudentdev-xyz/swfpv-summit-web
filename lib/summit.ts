@@ -98,7 +98,7 @@ export const PEOPLE: Person[] = [
   { photo: '/head-4.jpg', name: 'Dr. Tolu Osekita', role: 'Managing Partner, Mente Energy', when: 'Day 2 · 11:00 AM', bg: '#36318A', sub: '#DCE6F5' }
 ];
 export const PARTNERS: Partner[] = [
-  { name: 'Heliorec', country: 'France', talk: 'Deploying Compact, Eco-friendly Floating Solar Structures in Challenging Hydrological Environments', when: 'Day 1 · 02:30 PM', start: '2026-12-03T14:30:00+01:00', end: '2026-12-03T14:50:00+01:00' },
+  { name: 'Heliorec', country: 'France', talk: 'Deploying Compact, Eco-friendly Floating Solar Structures in Challenging Hydrological Environments', when: 'Day 1 · 02:30 PM', start: '2026-12-03T14:30:00+01:00', end: '2026-12-03T14:50:00+01:00' , logo: { src: '/logo-heliorec.png', width: 600, height: 133, bg: '#FFFFFF', maxW: '86%' } },
   { name: 'NRG Island', country: 'Italy', talk: 'Modular Floating Architectures and Scale Optimisation for Utility Projects', when: 'Day 1 · 02:30 PM', start: '2026-12-03T14:30:00+01:00', end: '2026-12-03T14:50:00+01:00', logo: { src: '/logo-nrg.png', width: 2362, height: 2368, bg: '#18213F', maxW: '120px' } },
   { name: 'Seaflex', country: 'Sweden', talk: 'Elastic Mooring Technology: Managing Severe Water Level Fluctuations and Structural Integrity', when: 'Day 2 · 10:00 AM', start: '2026-12-04T10:00:00+01:00', end: '2026-12-04T10:25:00+01:00', logo: { src: '/logo-seaflex.webp', width: 772, height: 262, bg: '#FFFFFF', maxW: '86%' } },
   { name: 'Green Power & Storage (GPS)', country: 'Canada', talk: 'Hybridization, global energy storage and power stabilization technologies', when: 'Day 2 · 03:00 PM', start: '2026-12-04T15:00:00+01:00', end: '2026-12-04T15:25:00+01:00', logo: { src: '/logo-gps.png', width: 800, height: 298, bg: '#FFFFFF', maxW: '80%' } }
@@ -120,15 +120,18 @@ export const CONTACT = {
 
 export type StakeholderLogo = { src: string; alt: string; width: number; height: number; maxH: string };
 
+/** Organisers first, then government bodies, then the international partners. */
 export const STAKEHOLDER_LOGOS: StakeholderLogo[] = [
-  { src: '/logo-borbda-clear.png', alt: 'Benin-Owena River Basin Development Authority', width: 400, height: 399, maxH: 'max-h-[96px]' },
-  { src: '/logo-nrg-clear.png', alt: 'NRG Island', width: 800, height: 725, maxH: 'max-h-[88px]' },
+  { src: '/logo-dolf-hydrometric.png', alt: 'D-OLF Hydrometric Nigeria Limited', width: 248, height: 144, maxH: 'max-h-[80px]' },
+  { src: '/logo-dolf-southwest.png', alt: 'D-OLF Southwest Clean Energy Infrastructure Limited', width: 600, height: 143, maxH: 'max-h-[60px]' },
+  { src: '/logo-swdc.png', alt: 'South West Development Commission', width: 348, height: 170, maxH: 'max-h-[72px]' },
+  { src: '/logo-oorbda.png', alt: 'Ogun-Oshun River Basin Development Authority', width: 300, height: 300, maxH: 'max-h-[88px]' },
+  { src: '/logo-borbda-clear.png', alt: 'Benin-Owena River Basin Development Authority', width: 400, height: 399, maxH: 'max-h-[88px]' },
+  { src: '/logo-heliorec.png', alt: 'HelioRec', width: 600, height: 133, maxH: 'max-h-[52px]' },
+  { src: '/logo-nrg-clear.png', alt: 'NRG Island', width: 800, height: 725, maxH: 'max-h-[84px]' },
   { src: '/logo-seaflex-clear.png', alt: 'Seaflex', width: 726, height: 172, maxH: 'max-h-[52px]' },
   { src: '/logo-gps.png', alt: 'Green Power & Storage (GPS)', width: 800, height: 298, maxH: 'max-h-[60px]' },
 ];
-
-/** Stakeholders with no logo file yet; they show as name tiles. */
-export const STAKEHOLDER_NAMES = ['Heliorec'];
 
 /** Day 1 opening session, 1:00 PM West Africa Time. */
 export const SUMMIT_START = new Date('2026-12-03T13:00:00+01:00');
