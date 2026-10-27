@@ -1,11 +1,10 @@
 import { PrimaryButton } from "@/components/buttons/primary-button";
 import { SecondaryButton } from "@/components/buttons/secondary-button";
-import { Countdown } from "@/components/countdown";
 import { TAG, delay, tilt } from "@/lib/styles";
 
 export function Hero() {
   return (
-    <header id="top" className="relative overflow-hidden bg-navy px-[clamp(20px,4vw,56px)] pt-10 pb-16 sm:pt-16 sm:pb-24">
+    <header id="top" className="relative overflow-hidden bg-navy px-[clamp(20px,4vw,56px)] pt-10 pb-24 sm:pt-16 sm:pb-32">
       {/* Floating solar loop under a navy overlay. Reduced motion gets the still poster. */}
       <div
         aria-hidden
@@ -24,7 +23,7 @@ export function Hero() {
           <source src="/hero/floating-solar.webm" type="video/webm" />
           <source src="/hero/floating-solar.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(43_38_106/0.55)_0%,rgb(43_38_106/0.45)_45%,rgb(43_38_106/0.8)_85%,#2b266a_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(43_38_106/0.55)_0%,rgb(43_38_106/0.45)_45%,rgb(43_38_106/0.8)_80%,#2b266a_96%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_50%_45%,rgb(28_26_74/0.55)_0%,rgb(28_26_74/0)_100%)]" />
       </div>
 
@@ -66,7 +65,6 @@ export function Hero() {
           <strong className="text-white">Theme:</strong> Floating Solar Architecture: Global
           Blueprints for Southwest Nigeria’s Clean Energy Future
         </p>
-        <Countdown />
         <div className="flex flex-wrap justify-center gap-3">
           <PrimaryButton href="#rsvp" className="ring-2 ring-white">
             RSVP now
