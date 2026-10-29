@@ -45,6 +45,17 @@
   --muted: #4a4870;
   --subtle: #6b6990;
   --line: #e1e6f0;
+
+  /* Hero ribbons: soft pastel bands on near-white. */
+  --rb-base: #f5f8fd;
+  --rb-1: #d3ecfa;
+  --rb-2: #8fb3f6;
+  --rb-3: #93ddd3;
+  --rb-4: #8ec8ec;
+  --rb-alpha: 0.7;
+  --rb-edge: #ffffff;
+  --rb-blur: blur(14px);
+  --rb-vignette: linear-gradient(180deg, rgb(245 248 253 / 0.15), rgb(245 248 253 / 0) 60%);
 }
 
 [data-theme="dark"] {
@@ -60,6 +71,17 @@
   --muted: #b9c1dd;
   --subtle: #8e94b9;
   --line: #2a2960;
+
+  /* Hero ribbons: glowing blue bands on deep navy. */
+  --rb-base: #0a1230;
+  --rb-1: #8fd3e8;
+  --rb-2: #3558cc;
+  --rb-3: #1f8c92;
+  --rb-4: #2766ad;
+  --rb-alpha: 0.9;
+  --rb-edge: #cfe4ff;
+  --rb-blur: blur(1px);
+  --rb-vignette: radial-gradient(ellipse 80% 70% at 50% 45%, rgb(10 18 48 / 0) 40%, rgb(10 18 48 / 0.55) 100%);
 }
 
 @layer base {
@@ -173,6 +195,18 @@
   animation: pulse-ring 2200ms ease-out infinite;
 }
 
+/* Hero ribbons: each drifts, tilts and swells on its own 34–50s loop. */
+@keyframes ribbon-drift {
+  50% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scaleY(var(--sw));
+  }
+}
+
+.anim-ribbon {
+  will-change: transform;
+  animation: ribbon-drift var(--dur) ease-in-out var(--delay) infinite;
+}
+
 /* Map outlines stay hidden until RevealOnScroll adds .is-drawn to the map. */
 .draw-path {
   stroke-dasharray: 1;
@@ -193,6 +227,7 @@
   .anim-marquee,
   .anim-blink,
   .anim-pulse,
+  .anim-ribbon,
   .is-drawn .draw-path {
     animation: none;
   }
