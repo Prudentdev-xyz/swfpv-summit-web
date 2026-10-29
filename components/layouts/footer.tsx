@@ -10,7 +10,7 @@ export function Footer() {
           <Image src="/dolf-hydrometric-logo.png" alt="D-OLF Hydrometric Nigeria Limited" width={256} height={152} className="h-16 w-auto self-start dark:hidden" />
           <Image src="/dolf-hydrometric-logo-dark.png" alt="D-OLF Hydrometric Nigeria Limited" width={249} height={146} className="hidden h-16 w-auto self-start dark:block" />
           <span className="max-w-[320px] text-[15px] leading-normal text-muted">
-            Southwest Regional Stakeholder Summit · 3–5 December 2026
+            Southwest Regional Stakeholder Summit · 3 & 4 December 2026
           </span>
         </div>
         <div className="flex flex-col gap-2 text-[15px] text-heading">

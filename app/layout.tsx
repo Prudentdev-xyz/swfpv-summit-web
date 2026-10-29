@@ -17,7 +17,7 @@ const anton = Anton({
 export const metadata: Metadata = {
   title: "Southwest Regional Stakeholder Summit | 150MWp Floating Solar PV",
   description:
-    "Official VIP invitation to the Southwest Regional Stakeholder Summit on the 150MWp Floating Solar PV Power Plant Infrastructure Pipeline. 3 to 5 December 2026, IITA Conference Center, Ibadan.",
+    "Official VIP invitation to the Southwest Regional Stakeholder Summit on the 150MWp Floating Solar PV Power Plant Infrastructure Pipeline. 3 and 4 December 2026, IITA Conference Center, Ibadan.",
 };
 
 // Runs before first paint: a saved choice wins, otherwise follow the device setting.

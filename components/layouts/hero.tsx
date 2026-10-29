@@ -55,7 +55,7 @@ export function Hero() {
             </PrimaryButton>
             <SecondaryButton href="#programme">View Programme</SecondaryButton>
           </div>
-          <p className="m-0 text-[15px] font-bold text-heading">3–5 Dec 2026 · IITA, Ibadan · Hybrid</p>
+          <p className="m-0 text-[15px] font-bold text-heading">3 & 4 Dec 2026 · IITA, Ibadan · Hybrid</p>
         </div>
 
         <div className="relative mx-auto aspect-[1/1.02] w-full max-w-[520px] tab:mx-0 tab:ml-auto">

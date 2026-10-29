@@ -134,6 +134,7 @@ export const PARTNER_LOGOS: StakeholderLogo[] = [
   { src: '/logo-nrg-clear.png', alt: 'NRG Island', width: 800, height: 725, maxH: 'max-h-[84px]', dark: { src: '/logo-nrg-dark.png', width: 372, height: 338 } },
   { src: '/logo-seaflex-clear.png', alt: 'Seaflex', width: 726, height: 172, maxH: 'max-h-[52px]', dark: { src: '/logo-seaflex-dark.png', width: 759, height: 180 } },
   { src: '/logo-gps.png', alt: 'Green Power & Storage (GPS)', width: 800, height: 298, maxH: 'max-h-[60px]', dark: { src: '/logo-gps-dark.png', width: 795, height: 296 } },
+  { src: '/logo-mente.png', alt: 'Mente Energy', width: 408, height: 322, maxH: 'max-h-[88px]', dark: { src: '/logo-mente-dark.png', width: 408, height: 322 } },
 ];
 
 export const SPONSOR_LOGOS: StakeholderLogo[] = [
@@ -141,5 +142,5 @@ export const SPONSOR_LOGOS: StakeholderLogo[] = [
   { src: '/logo-dolf-southwest.png', alt: 'D-OLF Southwest Clean Energy Infrastructure Limited', width: 600, height: 143, maxH: 'max-h-[60px]', dark: { src: '/logo-southwest-dark.png', width: 761, height: 183 } },
 ];
 
-/** Day 1 opening session, 1:00 PM West Africa Time. */
-export const SUMMIT_START = new Date('2026-12-03T13:00:00+01:00');
+/** Day 1 opening, 8:00 AM West Africa Time. */
+export const SUMMIT_START = new Date('2026-12-03T08:00:00+01:00');
