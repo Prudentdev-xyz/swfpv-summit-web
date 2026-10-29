@@ -2,9 +2,6 @@ import Image from "next/image";
 import { SecondaryButton } from "@/components/buttons/secondary-button";
 import { DISPLAY, GUTTER, SECTION_Y, TAG } from "@/lib/styles";
 
-/** Set to a file in /public (e.g. "/venue-iita.jpg") to replace the venue panel with a photo. */
-const VENUE_PHOTO: string | null = null;
-
 export function Venue() {
   return (
     <section
@@ -13,25 +10,13 @@ export function Venue() {
     >
       <div data-reveal="" className="relative">
         <div className="relative aspect-[5/4] -rotate-2 overflow-hidden rounded-3xl border-[6px] border-navy bg-ice">
-          {VENUE_PHOTO ? (
-            <Image
-              src={VENUE_PHOTO}
-              alt="IITA Conference Center, Ibadan"
-              fill
-              sizes="(min-width: 960px) 55vw, 100vw"
-              className="scale-[1.2] object-cover"
-            />
-          ) : (
-            <div className="flex h-full flex-col items-start justify-end gap-3 bg-navy p-[clamp(24px,4vw,48px)] text-white">
-              <span className="font-display text-[clamp(72px,10vw,160px)] leading-[.85] text-sky">IITA</span>
-              <span className="font-display text-[clamp(22px,2.4vw,36px)] leading-none uppercase">
-                Conference Center
-              </span>
-              <span className="text-[15px] font-semibold text-pale">
-                In person, with partners live via Zoom
-              </span>
-            </div>
-          )}
+          <Image
+            src="/venue-iita.jpg"
+            alt="Main hall of the IITA Conference Center, Ibadan, set with desks, microphones and a projector screen"
+            fill
+            sizes="(min-width: 960px) 55vw, 100vw"
+            className="object-cover"
+          />
         </div>
         <div className="absolute -right-2.5 -bottom-5 rotate-[5deg] rounded-lg bg-sky px-4 py-2.5 text-[15px] font-extrabold text-white shadow-[4px_4px_0_#2B266A] dark:shadow-[4px_4px_0_#FFFFFF]">
           Ibadan, Nigeria
