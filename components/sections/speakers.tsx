@@ -1,6 +1,6 @@
 import { SpeakerCard } from "@/components/speaker-card";
 import { PEOPLE } from "@/lib/summit";
-import { DISPLAY, GUTTER } from "@/lib/styles";
+import { DISPLAY, GUTTER, SECTION_PB } from "@/lib/styles";
 
 export function Speakers() {
   return (
@@ -15,9 +15,14 @@ export function Speakers() {
           Voices shaping the blueprint for floating solar in Southwest Nigeria.
         </p>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))]">
+      {/* Four across on desktop, two on tablets; a short last row stays centred. */}
+      <div className={`mx-auto flex max-w-[1400px] flex-wrap justify-center gap-5 ${GUTTER} ${SECTION_PB}`}>
         {PEOPLE.map((p) => (
-          <SpeakerCard key={p.name} person={p} />
+          <SpeakerCard
+            key={p.name}
+            person={p}
+            className="w-full max-w-[380px] sm:w-[calc((100%-20px)/2)] sm:max-w-none tab:w-[calc((100%-60px)/4)]"
+          />
         ))}
       </div>
     </section>

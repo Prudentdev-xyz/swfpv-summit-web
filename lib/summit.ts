@@ -28,11 +28,12 @@ export type ProgrammeDay = {
 };
 
 export type Person = {
-  photo: string;
+  /** Leave out to show a placeholder silhouette until the headshot arrives. */
+  photo?: string;
   name: string;
-  role: string;
-  when: string;
-  host?: boolean;
+  role?: string;
+  /** Small white tag above the name, e.g. the session they moderate. */
+  badge?: string;
   /** Card colour and the softer colour used for the role line. */
   bg: string;
   sub: string;
@@ -94,10 +95,13 @@ export const PROGRAMME: ProgrammeDay[] = [
     { time: '11:00 AM – 12:00 PM', type: 'Arrival', quietLabel: 'Departure', title: 'Vote of Thanks, Delegate Checkout, and Official Departures' }] }
 ];
 export const PEOPLE: Person[] = [
-  { photo: '/idowu-adeshina-portrait.jpg', host: true, name: 'Engr. Idowu Adeshina', role: 'Managing Director/CEO, D-OLF Hydrometric Nigeria Limited', when: 'Day 1 · 02:00 PM & 03:45 PM', bg: '#2B266A', sub: '#DCE6F5' },
-  { photo: '/sj-ojolo-portrait.jpg', name: 'Professor S.J. Ojolo', role: 'University of Lagos (UNILAG) & Lead Technical Consultant', when: 'Day 1 · 03:00 PM', bg: '#29BFF5', sub: '#FFFFFF' },
-  { photo: '/shakirudeen-odunuga-portrait.jpg', name: 'Professor Shakirudeen Odunuga', role: 'University of Lagos (UNILAG) & Lead ESIA Consultant', when: 'Day 2 · 09:15 AM', bg: '#1593C9', sub: '#FFFFFF' },
-  { photo: '/tolu-osekita-portrait.jpg', name: 'Dr. Tolu Osekita', role: 'Managing Partner, Mente Energy', when: 'Day 2 · 11:00 AM', bg: '#36318A', sub: '#DCE6F5' }
+  { photo: '/idowu-adeshina-portrait.jpg', badge: 'Host & Moderator', name: 'Engr. Idowu Adeshina', role: 'Managing Director/CEO, D-OLF Hydrometric Nigeria Limited', bg: '#2B266A', sub: '#DCE6F5' },
+  { photo: '/sj-ojolo-portrait.jpg', name: 'Professor S.J. Ojolo', role: 'University of Lagos (UNILAG) & Lead Technical Consultant', bg: '#29BFF5', sub: '#FFFFFF' },
+  { photo: '/shakirudeen-odunuga-portrait.jpg', name: 'Professor Shakirudeen Odunuga', role: 'University of Lagos (UNILAG) & Lead ESIA Consultant', bg: '#1593C9', sub: '#FFFFFF' },
+  { photo: '/tolu-osekita-portrait.jpg', name: 'Dr. Tolu Osekita', role: 'Managing Partner, Mente Energy', bg: '#36318A', sub: '#DCE6F5' },
+  { photo: '/abiola-adekunle-portrait.jpg', badge: 'Stakeholders Session Moderator', name: 'Abiola Adekunle', bg: '#29BFF5', sub: '#FFFFFF' },
+  { photo: '/adegoke-melodi-portrait.jpg', badge: 'Guest Speaker', name: 'Prof. Adegoke Melodi', role: 'Federal University of Technology Akure (FUTA)', bg: '#1593C9', sub: '#FFFFFF' },
+  { photo: '/tijani-saliu-portrait.jpg', badge: 'Guest Speaker', name: 'Dr. Tijani Saliu', bg: '#2B266A', sub: '#DCE6F5' }
 ];
 export const PARTNERS: Partner[] = [
   { name: 'HelioRec', country: 'France', talk: 'Deploying Compact, Eco-friendly Floating Solar Structures in Challenging Hydrological Environments', when: 'Day 1 · 02:30 PM', start: '2026-12-03T14:30:00+01:00', end: '2026-12-03T14:50:00+01:00' , logo: { src: '/logo-heliorec.png', width: 600, height: 133, bg: '#FFFFFF', maxW: '86%', dark: { src: '/logo-heliorec-dark.png', width: 895, height: 202 } }, speaker: { name: 'Theophile Bresson', photo: '/theophile-bresson.jpg' } },
