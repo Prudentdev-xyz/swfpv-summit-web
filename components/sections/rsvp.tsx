@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { ArrowCircle } from "@/components/buttons/arrow-circle";
-import { CONTACT } from "@/lib/summit";
-import { DISPLAY, GUTTER, SECTION_Y, TAG } from "@/lib/styles";
+import { DISPLAY, GUTTER, SECTION_Y } from "@/lib/styles";
 
 export function Rsvp() {
   return (
@@ -14,13 +14,13 @@ export function Rsvp() {
         </h2>
         <p className="m-0 text-lg leading-[1.6] text-pale">Register now to secure your spot at the summit.</p>
         <div className="mt-2.5 flex flex-wrap justify-center gap-3.5">
-          <a
-            // href={}
+          <Link
+            href="/register"
             className="inline-flex h-16 items-center gap-3.5 rounded-full bg-sky pr-2.5 pl-[30px] text-[clamp(18px,2vw,22px)] font-extrabold whitespace-nowrap text-white transition-colors hover:bg-white hover:text-navy"
           >
-            Register Now 
+            Register Now
             <ArrowCircle className="size-[46px] bg-navy text-lg text-white" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -72,7 +72,7 @@ export function Header() {
         </div>
         <ThemeToggle />
         {/* On phones the hamburger menu carries its own Register button. */}
-        <PrimaryButton href="#rsvp" size="sm" onClick={closeMenu} className="max-[820px]:hidden">
+        <PrimaryButton href="/register" size="sm" onClick={closeMenu} className="max-[820px]:hidden">
           Register
         </PrimaryButton>
         <button
@@ -116,7 +116,7 @@ export function Header() {
           ))}
         </ul>
         <a
-          href="#rsvp"
+          href="/register"
           onClick={closeMenu}
           className="mt-3 flex h-[52px] items-center justify-center rounded-full bg-navy text-base font-bold text-white hover:bg-ocean hover:text-white"
         >

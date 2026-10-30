@@ -50,7 +50,7 @@ export function Hero() {
             Blueprints for Southwest Nigeria’s Clean Energy Future
           </p>
           <div className="flex flex-wrap gap-3">
-            <PrimaryButton href="#rsvp" className="ring-2 ring-white">
+            <PrimaryButton href="/register" className="ring-2 ring-white">
               Register now
             </PrimaryButton>
             <SecondaryButton href="#programme">View Programme</SecondaryButton>
