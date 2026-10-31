@@ -30,6 +30,18 @@ export function SponsorForm() {
       {(errors) => (
         <>
           <div className="grid gap-6 min-[640px]:grid-cols-2">
+            <Field name="contact_name" label="Contact person" errors={errors}>
+              {(p) => <input {...p} className={inputClass(errors, p.name)} required minLength={2} maxLength={120} autoComplete="name" />}
+            </Field>
+            <Field name="email" label="Email address" errors={errors}>
+              {(p) => <input {...p} className={inputClass(errors, p.name)} type="email" required autoComplete="email" />}
+            </Field>
+            <PhoneField errors={errors} />
+            <Field name="job_title" label="Job title / position" errors={errors}>
+              {(p) => (
+                <input {...p} className={inputClass(errors, p.name)} required minLength={2} maxLength={160} autoComplete="organization-title" />
+              )}
+            </Field>
             <Field name="organisation_name" label="Organisation name" errors={errors}>
               {(p) => (
                 <input {...p} className={inputClass(errors, p.name)} required minLength={2} maxLength={160} autoComplete="organization" />
@@ -38,18 +50,6 @@ export function SponsorForm() {
             <Field name="website" label="Website" optional errors={errors} hint="e.g. yourcompany.com">
               {(p) => <input {...p} className={inputClass(errors, p.name)} inputMode="url" autoComplete="url" maxLength={300} />}
             </Field>
-            <Field name="contact_name" label="Contact person" errors={errors}>
-              {(p) => <input {...p} className={inputClass(errors, p.name)} required minLength={2} maxLength={120} autoComplete="name" />}
-            </Field>
-            <Field name="job_title" label="Job title / position" errors={errors}>
-              {(p) => (
-                <input {...p} className={inputClass(errors, p.name)} required minLength={2} maxLength={160} autoComplete="organization-title" />
-              )}
-            </Field>
-            <Field name="email" label="Email address" errors={errors}>
-              {(p) => <input {...p} className={inputClass(errors, p.name)} type="email" required autoComplete="email" />}
-            </Field>
-            <PhoneField errors={errors} />
           </div>
 
           <Field name="location" label="Company address" errors={errors} hint="Street, city and state">
