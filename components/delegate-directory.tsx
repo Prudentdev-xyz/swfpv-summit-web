@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { DelegateCard } from "@/components/delegate-card";
 import { DelegateMap } from "@/components/delegate-map";
-import { DELEGATES, SECTORS, STATES, slug, type Delegate, type DelegateState, type DirectoryFilters } from "@/lib/delegates";
+import { DELEGATES, SECTORS, STATES, slug, stateLabel, type Delegate, type DirectoryFilters } from "@/lib/delegates";
 import { DISPLAY } from "@/lib/styles";
 
 function toQuery({ q, state, sector, grouped }: DirectoryFilters) {
@@ -22,7 +22,9 @@ function tally<K extends string>(list: Delegate[], key: (d: Delegate) => K) {
   return counts;
 }
 
-const stateLabel = (s: DelegateState) => (s === "Federal" || s === "International" ? s : `${s} State`);
+// Only options someone in the list actually has get a pill; the map still shows all five states.
+const STATE_OPTIONS = STATES.filter((s) => DELEGATES.some((d) => d.state === s));
+const SECTOR_OPTIONS = SECTORS.filter((s) => DELEGATES.some((d) => d.sector === s));
 
 type PillProps = { active: boolean; count?: number; onClick: () => void; children: ReactNode };
 
@@ -184,7 +186,7 @@ export function DelegateDirectory({ initial }: { initial: DirectoryFilters }) {
             <Pill active={!state} onClick={() => update({ state: null })}>
               All states
             </Pill>
-            {STATES.map((s) => (
+            {STATE_OPTIONS.map((s) => (
               <Pill key={s} active={state === s} count={stateCounts[s] ?? 0} onClick={() => update({ state: state === s ? null : s })}>
                 {s}
               </Pill>
@@ -194,7 +196,7 @@ export function DelegateDirectory({ initial }: { initial: DirectoryFilters }) {
             <Pill active={!sector} onClick={() => update({ sector: null })}>
               All sectors
             </Pill>
-            {SECTORS.map((s) => (
+            {SECTOR_OPTIONS.map((s) => (
               <Pill key={s} active={sector === s} count={sectorCounts[s] ?? 0} onClick={() => update({ sector: sector === s ? null : s })}>
                 {s}
               </Pill>

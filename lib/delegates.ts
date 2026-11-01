@@ -6,10 +6,14 @@
 
 /** Map order matches STATE_PATHS in components/sw-map-paths.ts. */
 export const MAP_STATES = ["Oyo", "Ogun", "Osun", "Ekiti", "Ondo"] as const;
-export const STATES = [...MAP_STATES, "Federal", "International"] as const;
+export const STATES = [...MAP_STATES, "Lagos", "Regional", "Federal", "International"] as const;
 export const SECTORS = ["Government", "Regulator", "Investor", "Engineering", "Academia", "Utility"] as const;
 
 export type DelegateState = (typeof STATES)[number];
+
+/** "Oyo State", but "Federal", "Southwest regional" and "International" as they are. */
+export const stateLabel = (s: DelegateState) =>
+  s === "Regional" ? "Southwest regional" : s === "Federal" || s === "International" ? s : `${s} State`;
 export type Sector = (typeof SECTORS)[number];
 export type DelegateType = "Commissioner" | "Regulator" | "Partner" | "Stakeholder";
 
@@ -51,33 +55,38 @@ export function parseFilters(params: Record<string, string | string[] | undefine
   };
 }
 
+/** Confirmed delegates supplied by the organisers. */
 export const DELEGATES: Delegate[] = [
-  { id: "d01", name: "Hon. Adebayo Oyelaran", title: "Commissioner for Energy and Mineral Resources", organisation: "Oyo State Government", state: "Oyo", sector: "Government", type: "Commissioner" },
-  { id: "d02", name: "Engr. Folake Adeyemi", title: "Director, Renewable Energy", organisation: "Oyo State Ministry of Energy", state: "Oyo", sector: "Government", type: "Stakeholder" },
-  { id: "d03", name: "Prof. Kunle Ogundipe", title: "Professor of Hydrology", organisation: "University of Ibadan", state: "Oyo", sector: "Academia", type: "Stakeholder" },
-  { id: "d04", name: "Mrs. Bisi Alade", title: "Head of Network Planning", organisation: "Ibadan Electricity Distribution Company", state: "Oyo", sector: "Utility", type: "Stakeholder" },
-  { id: "d05", name: "Hon. Olumide Sowunmi", title: "Commissioner for Environment", organisation: "Ogun State Government", state: "Ogun", sector: "Government", type: "Commissioner" },
-  { id: "d06", name: "Dr. Yetunde Bakare", title: "General Manager", organisation: "Ogun-Osun River Basin Development Authority", state: "Ogun", sector: "Government", type: "Stakeholder" },
-  { id: "d07", name: "Mr. Tobi Akinwale", title: "Managing Partner", organisation: "Gateway Infrastructure Fund", state: "Ogun", sector: "Investor", type: "Stakeholder" },
-  { id: "d08", name: "Engr. Segun Ilori", title: "Chief Engineer, Dams", organisation: "Ogun State Water Corporation", state: "Ogun", sector: "Engineering", type: "Stakeholder" },
-  { id: "d09", name: "Hon. Ronke Adesina", title: "Commissioner for Water Resources", organisation: "Osun State Government", state: "Osun", sector: "Government", type: "Commissioner" },
-  { id: "d10", name: "Dr. Gbenga Oladipo", title: "Senior Lecturer, Electrical Engineering", organisation: "Obafemi Awolowo University", state: "Osun", sector: "Academia", type: "Stakeholder" },
-  { id: "d11", name: "Engr. Tayo Fasanmi", title: "Project Lead, Owalla Dam", organisation: "Osun State Ministry of Water Resources", state: "Osun", sector: "Engineering", type: "Stakeholder" },
-  { id: "d12", name: "Hon. Femi Ajayi", title: "Commissioner for Public Utilities", organisation: "Ekiti State Government", state: "Ekiti", sector: "Government", type: "Commissioner" },
-  { id: "d13", name: "Mrs. Kemi Olowookere", title: "Managing Director", organisation: "Ekiti State Water Corporation", state: "Ekiti", sector: "Utility", type: "Stakeholder" },
-  { id: "d14", name: "Prof. Lanre Babatunde", title: "Dean, Faculty of Engineering", organisation: "Ekiti State University", state: "Ekiti", sector: "Academia", type: "Stakeholder" },
-  { id: "d15", name: "Hon. Dayo Akintola", title: "Commissioner for Energy", organisation: "Ondo State Government", state: "Ondo", sector: "Government", type: "Commissioner" },
-  { id: "d16", name: "Engr. Wale Omotoso", title: "Director, Power Projects", organisation: "Ondo State Ministry of Energy", state: "Ondo", sector: "Engineering", type: "Stakeholder" },
-  { id: "d17", name: "Ms. Ifeoma Nwosu", title: "Investment Director", organisation: "Sunrise Capital Partners", state: "Ondo", sector: "Investor", type: "Stakeholder" },
-  { id: "d18", name: "Mr. Tunde Fashola", title: "Head of Operations", organisation: "Benin Electricity Distribution Company", state: "Ondo", sector: "Utility", type: "Stakeholder" },
-  { id: "d19", name: "Dr. Amina Bello", title: "Commissioner, Planning and Licensing", organisation: "Nigerian Electricity Regulatory Commission", state: "Federal", sector: "Regulator", type: "Regulator" },
-  { id: "d20", name: "Engr. Chinedu Okafor", title: "Director, Renewable Energy", organisation: "Federal Ministry of Power", state: "Federal", sector: "Government", type: "Stakeholder" },
-  { id: "d21", name: "Mrs. Hauwa Sani", title: "Head of Grid Integration", organisation: "Transmission Company of Nigeria", state: "Federal", sector: "Utility", type: "Stakeholder" },
-  { id: "d22", name: "Dr. Musa Ibrahim", title: "Director, Dams and Reservoir Operations", organisation: "Federal Ministry of Water Resources", state: "Federal", sector: "Regulator", type: "Regulator" },
-  { id: "d23", name: "Mr. Emeka Eze", title: "Senior Investment Officer", organisation: "Infrastructure Credit Guarantee Company", state: "Federal", sector: "Investor", type: "Stakeholder" },
-  { id: "d24", name: "Dr. Lena Hoffmann", title: "Head of Floating PV Systems", organisation: "Solarwerk Engineering GmbH", state: "International", sector: "Engineering", type: "Partner", country: "Germany" },
-  { id: "d25", name: "Mr. Wei Zhang", title: "Regional Director, Africa", organisation: "Hydrosun Energy Co.", state: "International", sector: "Engineering", type: "Partner", country: "China" },
-  { id: "d26", name: "Ms. Priya Raman", title: "Principal Investment Officer", organisation: "Global Green Infrastructure Fund", state: "International", sector: "Investor", type: "Partner", country: "United Kingdom" },
-  { id: "d27", name: "Mr. Jan de Vries", title: "Business Development Manager", organisation: "AquaVolt Floating Systems", state: "International", sector: "Engineering", type: "Partner", country: "Netherlands" },
-  { id: "d28", name: "Dr. Aiko Tanaka", title: "Research Fellow, Floating Solar", organisation: "Pacific Institute for Energy Research", state: "International", sector: "Academia", type: "Partner", country: "Japan" },
+  { id: "d01", name: "Prof. Dahud Kehinde Shangodoyin", title: "Honourable Commissioner", organisation: "Oyo State Ministry of Energy and Mineral Resources", state: "Oyo", sector: "Government", type: "Commissioner" },
+  { id: "d02", name: "Hon. Adedoja Abiodun Bolarinwa", title: "Special Adviser", organisation: "Oyo State Ministry of Energy and Mineral Resources", state: "Oyo", sector: "Government", type: "Stakeholder" },
+  { id: "d03", name: "Mr. Ayanniyi Taiwo Michael", title: "Permanent Secretary", organisation: "Oyo State Ministry of Energy and Mineral Resources", state: "Oyo", sector: "Government", type: "Stakeholder" },
+  { id: "d04", name: "Engr. Ayodele Joseph Adesokan", title: "Director, Design and Construction", organisation: "Oyo State Ministry of Energy and Mineral Resources", state: "Oyo", sector: "Government", type: "Stakeholder" },
+  { id: "d05", name: "Engr. Tunde Tanimola", title: "Assistant Director, Planning and Budget", organisation: "Benin-Owena River Basin Development Authority", state: "Federal", sector: "Government", type: "Stakeholder" },
+  { id: "d06", name: "Engr. Joshua Aizeboje", title: "Assistant Director, Civil", organisation: "Benin-Owena River Basin Development Authority", state: "Federal", sector: "Government", type: "Stakeholder" },
+  { id: "d07", name: "Engr. Dr. Adedeji Ashiru", title: "Managing Director/CEO", organisation: "Ogun-Osun River Basin Development Authority", state: "Federal", sector: "Government", type: "Stakeholder" },
+  { id: "d08", name: "Engr. Dr. Kumolu Olumide Ayodeji", title: "Special Adviser (Technical) to the MD/CEO", organisation: "Ogun-Osun River Basin Development Authority", state: "Federal", sector: "Government", type: "Stakeholder" },
+  { id: "d09", name: "Engr. Temitope Aboyeji", title: "Assistant Chief Engineer (Design)", organisation: "Ogun-Osun River Basin Development Authority", state: "Federal", sector: "Government", type: "Stakeholder" },
+  { id: "d10", name: "Engr. Taiwo Oyerinde", title: "Principal Engineer (Electrical)", organisation: "Ogun-Osun River Basin Development Authority", state: "Federal", sector: "Government", type: "Stakeholder" },
+  { id: "d11", name: "Dr. Seye Oyeleye", title: "Director General", organisation: "DAWN Commission", state: "Regional", sector: "Government", type: "Stakeholder" },
+  { id: "d12", name: "Prince Adetayo Adeleke-Adedoyin", title: "Head, Special Projects and Funding", organisation: "DAWN Commission", state: "Regional", sector: "Government", type: "Stakeholder" },
+  { id: "d13", name: "Engr. Omoniyi Olugbenga", title: "Director, Operations and Engineering Services Department", organisation: "Ondo State Electricity Regulatory Commission", state: "Ondo", sector: "Regulator", type: "Regulator" },
+  { id: "d14", name: "Mr. Odejobi Babafemi", title: "HoD, Monitoring & Compliance Unit, Operations and Engineering Services", organisation: "Ondo State Electricity Regulatory Commission", state: "Ondo", sector: "Regulator", type: "Regulator" },
+  { id: "d15", name: "Engr. Akintan Dele Oladipo", title: "Director, Water Resources", organisation: "Ondo State Ministry of Water Resources, Public Sanitation and Hygiene", state: "Ondo", sector: "Government", type: "Stakeholder" },
+  { id: "d16", name: "Engr. Adedoyin Bamidele Festus", title: "Special Assistant to the Commissioner", organisation: "Ondo State Ministry of Water Resources, Public Sanitation and Hygiene", state: "Ondo", sector: "Government", type: "Stakeholder" },
+  { id: "d17", name: "Engr. Oshuporu Ayodeji Donald", title: "Project Electrical Engineer", organisation: "Ondo State Ministry of Water Resources, Public Sanitation and Hygiene", state: "Ondo", sector: "Government", type: "Stakeholder" },
+  { id: "d18", name: "Mr. Olumide Akinyomi", title: "Director, Water Supply (RUWASSA)", organisation: "Ondo State Ministry of Water Resources, Public Sanitation and Hygiene", state: "Ondo", sector: "Government", type: "Stakeholder" },
+  { id: "d19", name: "Engr. (Dr.) Ademola Temitayo Aderinto", title: "Hon. Commissioner for Environment and Natural Resources", organisation: "Oyo State Ministry of Environment and Natural Resources", state: "Oyo", sector: "Government", type: "Commissioner" },
+  { id: "d20", name: "Dr. Sunday Akinwale Moradeyo", title: "Permanent Secretary", organisation: "Oyo State Ministry of Environment and Natural Resources", state: "Oyo", sector: "Government", type: "Stakeholder" },
+  { id: "d21", name: "Dr. Funmilayo Evelyn Adesina", title: "Director, Pollution Monitoring and Quality Control", organisation: "Oyo State Ministry of Environment and Natural Resources", state: "Oyo", sector: "Government", type: "Stakeholder" },
+  { id: "d22", name: "Dr. Tijani Saliu", title: "Director, Water Resources Management", organisation: "Oyo State Ministry of Environment and Natural Resources", state: "Oyo", sector: "Government", type: "Stakeholder" },
+  { id: "d23", name: "Engr. D. S. David", title: "Executive Secretary/Chairman", organisation: "Ekiti State Electricity Regulatory Bureau (EKSERB)", state: "Ekiti", sector: "Regulator", type: "Regulator" },
+  { id: "d24", name: "Engr. Olanipekun 'Wale O.", title: "Director, Engineering, Planning & Monitoring", organisation: "Ekiti State Electricity Regulatory Bureau (EKSERB)", state: "Ekiti", sector: "Regulator", type: "Regulator" },
+  { id: "d25", name: "Engr. Rauf A. Amao", title: "General Manager", organisation: "Water Corporation of Oyo State", state: "Oyo", sector: "Utility", type: "Stakeholder" },
+  { id: "d26", name: "Engr. Y. A. Fasasi", title: "Director of Mechanical and Electrical", organisation: "Water Corporation of Oyo State", state: "Oyo", sector: "Utility", type: "Stakeholder" },
+  { id: "d27", name: "Daniel Krull", title: "Consul General", organisation: "Consulate General of the Federal Republic of Germany, Lagos", state: "International", sector: "Government", type: "Partner", country: "Germany" },
+  { id: "d28", name: "Prof. S. J. Ojolo", title: "Professor of Mechanical Engineering & Lead Technical Consultant", organisation: "University of Lagos", state: "Lagos", sector: "Academia", type: "Stakeholder" },
+  { id: "d29", name: "Prof. S. Odunuga", title: "Professor of Geography & Lead Environmental Consultant", organisation: "University of Lagos", state: "Lagos", sector: "Academia", type: "Stakeholder" },
+  { id: "d30", name: "Prof. Adegoke Melodi", title: "Dean, Department of Electrical Engineering", organisation: "Federal University of Technology Akure (FUTA)", state: "Ondo", sector: "Academia", type: "Stakeholder" },
+  { id: "d31", name: "Prof. Olulope Kehinde", title: "Professor of Electrical Power Systems Engineering", organisation: "Ekiti State University (EKSU)", state: "Ekiti", sector: "Academia", type: "Stakeholder" },
+  { id: "d32", name: "Mr. William A. Funmilayo", title: "Hon. Commissioner", organisation: "Oyo State Ministry of Lands, Housing and Urban Development", state: "Oyo", sector: "Government", type: "Commissioner" },
 ];

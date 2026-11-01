@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { Delegate, DelegateType } from "@/lib/delegates";
+import { stateLabel, type Delegate, type DelegateType } from "@/lib/delegates";
 import { DISPLAY } from "@/lib/styles";
 
 // Gold marks the most senior delegates, sky the international partners.
@@ -10,7 +10,7 @@ const BADGE: Record<DelegateType, string> = {
   Stakeholder: "bg-ice text-heading",
 };
 
-const HONORIFIC = /^(hon|engr|dr|prof|mr|mrs|ms|chief|alhaji|arc)\.?$/i;
+const HONORIFIC = /^\(?(hon|engr|dr|prof|professor|mr|mrs|ms|chief|alhaji|arc|prince)\.?\)?$/i;
 
 /** "Engr. Folake Adeyemi" -> "FA". */
 function initials(name: string) {
@@ -54,7 +54,7 @@ export function DelegateCard({ delegate: d }: { delegate: Delegate }) {
         {d.state === "International" ? (
           <span className={`${CHIP} text-ocean`}>International · {d.country}</span>
         ) : (
-          <span className={`${CHIP} text-heading`}>{d.state === "Federal" ? "Federal" : `${d.state} State`}</span>
+          <span className={`${CHIP} text-heading`}>{stateLabel(d.state)}</span>
         )}
         <span className={`${CHIP} text-subtle`}>{d.sector}</span>
       </div>
