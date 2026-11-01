@@ -1,6 +1,8 @@
+import { MAP_STATES } from "@/lib/delegates";
 import { STATE_PATHS } from "./sw-map-paths";
 
-const STATE_LABELS = [
+/** Label positions in the same order as STATE_PATHS. */
+export const STATE_LABELS = [
   { name: "OYO", x: 140, y: 160 },
   { name: "OGUN", x: 130, y: 430 },
   { name: "OSUN", x: 288, y: 262 },
@@ -22,21 +24,23 @@ export function SouthwestMap() {
       <svg
         viewBox="0 0 560 600"
         className="block h-auto w-full"
-        role="img"
+        role="group"
         aria-label="Map of Oyo, Ogun, Osun, Ekiti and Ondo states with the five proposed floating solar dam sites"
       >
         <g fill="#36318A" stroke="#29BFF5" strokeWidth="1.8" strokeLinejoin="round">
+          {/* Each state opens the delegate directory filtered to it. */}
           {STATE_PATHS.map((d, i) => (
-            <path
-              key={i}
-              d={d}
-              pathLength={1}
-              className="draw-path"
-              style={{ animationDelay: `${200 + i * 150}ms` }}
-            />
+            <a key={i} href={`/delegates?state=${MAP_STATES[i].toLowerCase()}`} aria-label={`Delegates from ${MAP_STATES[i]} State`}>
+              <path
+                d={d}
+                pathLength={1}
+                className="draw-path transition-[fill] duration-200 hover:fill-[#4a44b0]"
+                style={{ animationDelay: `${200 + i * 150}ms` }}
+              />
+            </a>
           ))}
         </g>
-        <g className="font-display" fontSize="26" fill="#FFFFFF" letterSpacing="1">
+        <g className="pointer-events-none font-display" fontSize="26" fill="#FFFFFF" letterSpacing="1">
           {STATE_LABELS.map((s) => (
             <text key={s.name} x={s.x} y={s.y}>
               {s.name}
@@ -68,7 +72,7 @@ export function SouthwestMap() {
         </g>
       </svg>
       <div className="mt-2.5 flex justify-between gap-4 text-[13px] font-bold text-white">
-        <span>Five states, five dams</span>
+        <span>Five states, five dams · tap a state to meet its delegates</span>
         <span className="flex items-center gap-2">
           <span className="size-2.5 rounded-full bg-sky" />
           Proposed FPV sites
