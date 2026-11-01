@@ -51,9 +51,6 @@ export function parseFilters(params: Record<string, string | string[] | undefine
   };
 }
 
-/** Placeholder entries until the organisers confirm the real list; the page shows a notice while true. */
-export const DELEGATES_ARE_SAMPLE = true;
-
 export const DELEGATES: Delegate[] = [
   { id: "d01", name: "Hon. Adebayo Oyelaran", title: "Commissioner for Energy and Mineral Resources", organisation: "Oyo State Government", state: "Oyo", sector: "Government", type: "Commissioner" },
   { id: "d02", name: "Engr. Folake Adeyemi", title: "Director, Renewable Energy", organisation: "Oyo State Ministry of Energy", state: "Oyo", sector: "Government", type: "Stakeholder" },

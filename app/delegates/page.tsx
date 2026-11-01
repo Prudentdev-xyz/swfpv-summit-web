@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { DelegateDirectory } from "@/components/delegate-directory";
-import { DELEGATES, DELEGATES_ARE_SAMPLE, parseFilters } from "@/lib/delegates";
+import { DELEGATES, parseFilters } from "@/lib/delegates";
 import { DISPLAY, GUTTER, SECTION_PB, TAG } from "@/lib/styles";
 
 export const metadata: Metadata = {
@@ -53,12 +53,6 @@ export default function DelegatesPage({ searchParams }: PageProps<"/delegates">)
 
       <section className={`${GUTTER} ${SECTION_PB}`}>
         <div className="mx-auto flex max-w-[1400px] flex-col gap-8">
-          {DELEGATES_ARE_SAMPLE && (
-            <p className="m-0 rounded-2xl border-2 border-dashed border-gold/70 bg-gold/10 px-5 py-3.5 text-[15px] leading-[1.5] text-heading">
-              <strong>Preview:</strong> these are sample delegates to show how the directory works. The confirmed
-              list will appear here once the organisers publish it.
-            </p>
-          )}
           <Suspense fallback={<DelegateDirectory initial={parseFilters({})} />}>
             <FilteredDirectory searchParams={searchParams} />
           </Suspense>
