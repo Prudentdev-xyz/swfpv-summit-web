@@ -7,7 +7,7 @@ import { DISPLAY, GUTTER, SECTION_PB, TAG } from "@/lib/styles";
 export const metadata: Metadata = {
   title: "Delegates | Southwest Regional Stakeholder Summit",
   description:
-    "Commissioners, regulators, river basin authorities, universities and international partners attending the Southwest Regional Stakeholder Summit, 3 and 4 December 2026.",
+    "Commissioners, regulators, utilities, river basin authorities, investors, universities and international partners attending the Southwest Regional Stakeholder Summit, 3 and 4 December 2026.",
 };
 
 const countries = new Set(DELEGATES.map((d) => d.country ?? "Nigeria")).size;
@@ -36,7 +36,8 @@ export default function DelegatesPage({ searchParams }: PageProps<"/delegates">)
               <span className="text-sky">delegates</span>
             </h1>
             <p className="m-0 text-lg leading-[1.6] text-muted">
-              Commissioners, regulators, river basin authorities, universities and international partners shaping
+              Commissioners, regulators, utilities, river basin authorities, investors, universities and international
+              partners shaping
               the 150MWp floating solar pipeline for Southwest Nigeria.
             </p>
           </div>

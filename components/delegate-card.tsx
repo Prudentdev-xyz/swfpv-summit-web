@@ -46,7 +46,7 @@ export function DelegateCard({ delegate: d }: { delegate: Delegate }) {
 
       <div className="flex flex-col gap-2">
         <h3 className={`${DISPLAY} text-[clamp(22px,1.9vw,27px)] leading-[1.02] text-heading`}>{d.name}</h3>
-        <p className="m-0 text-[14px] leading-[1.45] text-muted">{d.title}</p>
+        {d.title && <p className="m-0 text-[14px] leading-[1.45] text-muted">{d.title}</p>}
         <p className="m-0 text-[14px] leading-[1.4] font-bold text-heading">{d.organisation}</p>
       </div>
 

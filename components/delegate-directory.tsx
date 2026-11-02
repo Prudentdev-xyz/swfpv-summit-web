@@ -104,7 +104,7 @@ export function DelegateDirectory({ initial }: { initial: DirectoryFilters }) {
   const needle = q.trim().toLowerCase();
   const matching = needle
     ? DELEGATES.filter((d) =>
-        [d.name, d.title, d.organisation, d.country ?? ""].some((field) => field.toLowerCase().includes(needle)),
+        [d.name, d.title ?? "", d.organisation, d.country ?? ""].some((field) => field.toLowerCase().includes(needle)),
       )
     : DELEGATES;
 

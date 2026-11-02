@@ -6,21 +6,28 @@
 
 /** Map order matches STATE_PATHS in components/sw-map-paths.ts. */
 export const MAP_STATES = ["Oyo", "Ogun", "Osun", "Ekiti", "Ondo"] as const;
-export const STATES = [...MAP_STATES, "Lagos", "Regional", "Federal", "International"] as const;
+export const STATES = [...MAP_STATES, "Lagos", "Regional", "Federal", "Private", "International"] as const;
 export const SECTORS = ["Government", "Regulator", "Investor", "Engineering", "Academia", "Utility"] as const;
 
 export type DelegateState = (typeof STATES)[number];
 
-/** "Oyo State", but "Federal", "Southwest regional" and "International" as they are. */
-export const stateLabel = (s: DelegateState) =>
-  s === "Regional" ? "Southwest regional" : s === "Federal" || s === "International" ? s : `${s} State`;
+const LABELS: Partial<Record<DelegateState, string>> = {
+  Regional: "Southwest regional",
+  Federal: "Federal",
+  Private: "Private sector",
+  International: "International",
+};
+
+/** "Oyo State", but "Southwest regional", "Federal", "Private sector" and "International" for the rest. */
+export const stateLabel = (s: DelegateState) => LABELS[s] ?? `${s} State`;
 export type Sector = (typeof SECTORS)[number];
 export type DelegateType = "Commissioner" | "Regulator" | "Partner" | "Stakeholder";
 
 export type Delegate = {
   id: string;
   name: string;
-  title: string;
+  /** Left out when the organisers didn't give one. */
+  title?: string;
   organisation: string;
   state: DelegateState;
   sector: Sector;
@@ -89,4 +96,28 @@ export const DELEGATES: Delegate[] = [
   { id: "d30", name: "Prof. Adegoke Melodi", title: "Dean, Department of Electrical Engineering", organisation: "Federal University of Technology Akure (FUTA)", state: "Ondo", sector: "Academia", type: "Stakeholder" },
   { id: "d31", name: "Prof. Olulope Kehinde", title: "Professor of Electrical Power Systems Engineering", organisation: "Ekiti State University (EKSU)", state: "Ekiti", sector: "Academia", type: "Stakeholder" },
   { id: "d32", name: "Mr. William A. Funmilayo", title: "Hon. Commissioner", organisation: "Oyo State Ministry of Lands, Housing and Urban Development", state: "Oyo", sector: "Government", type: "Commissioner" },
+  { id: "d33", name: "Engr. Adabi Ayodeji Moses", title: "Senior Electrical Engineer", organisation: "Ondo State Power Company, Ministry of Energy", state: "Ondo", sector: "Utility", type: "Stakeholder" },
+  { id: "d34", name: "Mr. Ola Oresanya", title: "Honourable Commissioner of Environment", organisation: "Ogun State Ministry of Environment", state: "Ogun", sector: "Government", type: "Commissioner" },
+  { id: "d35", name: "Dr. Kafayat Lawal", title: "Permanent Secretary", organisation: "Ogun State Ministry of Environment", state: "Ogun", sector: "Government", type: "Stakeholder" },
+  { id: "d36", name: "Mr. Akinbode Shofela", title: "Director, Planning, Research and Statistics", organisation: "Ogun State Ministry of Environment", state: "Ogun", sector: "Government", type: "Stakeholder" },
+  { id: "d37", name: "Mr. Abajo Wasiu", title: "Officer", organisation: "Ogun State Ministry of Environment", state: "Ogun", sector: "Government", type: "Stakeholder" },
+  { id: "d38", name: "Prof. Chinwe Obuaku-Igwe", title: "Director-General and Special Envoy of the Governor on Climate Change and Renewable Energy; Technical Lead, Osun State delegation", organisation: "Office of the Executive Governor, Osun State", state: "Osun", sector: "Government", type: "Stakeholder" },
+  { id: "d39", name: "Mr. Bolaji", title: "Director of Water Resources", organisation: "Osun State Ministry of Water Resources", state: "Osun", sector: "Government", type: "Stakeholder" },
+  { id: "d40", name: "Mr. Salimonu", title: "Acting Permanent Secretary", organisation: "Osun State Ministry of Regional Integration and Special Duties", state: "Osun", sector: "Government", type: "Stakeholder" },
+  { id: "d41", name: "Engr. Abatan", title: "Acting Permanent Secretary", organisation: "Osun State Ministry of Energy", state: "Osun", sector: "Government", type: "Stakeholder" },
+  { id: "d42", name: "Dr. Fritz Mobolaji Olaoye", title: "Permanent Secretary", organisation: "Osun State Ministry of Lands and Physical Planning", state: "Osun", sector: "Government", type: "Stakeholder" },
+  { id: "d43", name: "Hon. Mayowa Adejoorin", title: "Honourable Commissioner", organisation: "Osun State Ministry of Environment and Sanitation", state: "Osun", sector: "Government", type: "Commissioner" },
+  { id: "d44", name: "Engr. Mrs. Jokotola Dupeola Florence", title: "General Manager", organisation: "Osun State Water Corporation", state: "Osun", sector: "Utility", type: "Stakeholder" },
+  { id: "d45", name: "Dr. Sunday Omoya", title: "Permanent Secretary", organisation: "Ekiti State Ministry of Environment and Natural Resources", state: "Ekiti", sector: "Government", type: "Stakeholder" },
+  { id: "d46", name: "Engr. Mrs. Ojelabi-Pedro Toyin Mercy", title: "Permanent Secretary", organisation: "Ekiti State Ministry of Infrastructure and Public Utilities", state: "Ekiti", sector: "Government", type: "Stakeholder" },
+  { id: "d47", name: "Engr. Sola Owoeye", organisation: "Ekiti State Ministry of Infrastructure and Public Utilities", state: "Ekiti", sector: "Government", type: "Stakeholder" },
+  { id: "d48", name: "Mr. Wole Afolabi", title: "Managing Director", organisation: "Ekiti Water and Sewerage Company Ltd", state: "Ekiti", sector: "Utility", type: "Stakeholder" },
+  { id: "d49", name: "Engr. Opeyemi Sunday Oluwatoba", title: "Director of Operations and Maintenance", organisation: "Ekiti Water and Sewerage Company Ltd", state: "Ekiti", sector: "Utility", type: "Stakeholder" },
+  { id: "d50", name: "Hon. Damilola Otubanjo", title: "Special Adviser on SDGs and Water Resources", organisation: "Ogun State Water Corporation (OGSWC)", state: "Ogun", sector: "Utility", type: "Stakeholder" },
+  { id: "d51", name: "Engr. Olusoji Sangobiyi", organisation: "Odu’a Investment Company Limited", state: "Regional", sector: "Investor", type: "Stakeholder" },
+  { id: "d52", name: "Mr. Olusola Ojeniyi", title: "Head, Equities", organisation: "Odu’a Investment Company Limited", state: "Regional", sector: "Investor", type: "Stakeholder" },
+  { id: "d53", name: "Mr. Shuaib Olawoyin", organisation: "Odu’a Investment Company Limited", state: "Regional", sector: "Investor", type: "Stakeholder" },
+  { id: "d54", name: "Engr. Abidemi Rasaq", organisation: "Ondo State Ministry of Infrastructure, Lands and Housing", state: "Ondo", sector: "Government", type: "Stakeholder" },
+  { id: "d55", name: "Dr. Tolu Osekita", title: "Managing Partner", organisation: "Mente Energy Limited", state: "Private", sector: "Engineering", type: "Stakeholder" },
+  { id: "d56", name: "Ms. Abiola Adekunle", title: "Director of Deliveries", organisation: "Mente Energy Limited", state: "Private", sector: "Engineering", type: "Stakeholder" },
 ];
